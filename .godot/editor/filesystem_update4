@@ -1,0 +1,7 @@
+res://assets/menus/menu.tscn
+res://assets/Escenas/progress_bar.tscn
+res://assets/scripts/vida_jugador.gd
+res://assets/scripts/personaje.gd
+res://assets/Escenas/progress_bar.gd
+res://assets/Escenas/personaje.tscn
+res://assets/vida_jugador.tscn

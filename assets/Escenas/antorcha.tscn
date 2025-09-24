@@ -1,0 +1,66 @@
+[gd_scene load_steps=11 format=3 uid="uid://bvlspnpnn3nqu"]
+
+[ext_resource type="Texture2D" uid="uid://cmfv3ffjglckm" path="res://assets/imagenes/mapa/antorcha.png" id="1_m7di0"]
+[ext_resource type="Script" uid="uid://gfckk57e2nji" path="res://assets/scripts/antorcha.gd" id="1_ybhwt"]
+[ext_resource type="Texture2D" uid="uid://cclnwavhx7ry" path="res://assets/imagenes/mapa/light.png" id="3_ff0fb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybhwt"]
+atlas = ExtResource("1_m7di0")
+region = Rect2(0, 0, 60, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ff0fb"]
+atlas = ExtResource("1_m7di0")
+region = Rect2(60, 0, 60, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4b4dy"]
+atlas = ExtResource("1_m7di0")
+region = Rect2(120, 0, 60, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_17k1y"]
+atlas = ExtResource("1_m7di0")
+region = Rect2(0, 80, 60, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6nqvf"]
+atlas = ExtResource("1_m7di0")
+region = Rect2(60, 80, 60, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cp00g"]
+atlas = ExtResource("1_m7di0")
+region = Rect2(120, 80, 60, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wkgs3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ybhwt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ff0fb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4b4dy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_17k1y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6nqvf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cp00g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="antorcha" type="CharacterBody2D"]
+script = ExtResource("1_ybhwt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_wkgs3")
+
+[node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D"]
+color = Color(0.94902, 0.403922, 0.129412, 1)
+texture = ExtResource("3_ff0fb")

@@ -1,0 +1,95 @@
+[gd_scene load_steps=13 format=3 uid="uid://c8h2bqy304mup"]
+
+[ext_resource type="Script" uid="uid://g3gr01u330d8" path="res://assets/scripts/personaje.gd" id="1_cjgwm"]
+[ext_resource type="Texture2D" uid="uid://im7j8jyghrhh" path="res://assets/imagenes/corriendo.png" id="1_o5b8i"]
+[ext_resource type="Texture2D" uid="uid://dc533d086vl3v" path="res://assets/imagenes/mapa/light.png" id="3_m315j"]
+[ext_resource type="PackedScene" uid="uid://co54i52alnghe" path="res://assets/Escenas/progress_bar.tscn" id="4_685ri"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjgwm"]
+atlas = ExtResource("1_o5b8i")
+region = Rect2(0, 0, 1198, 1340)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m315j"]
+atlas = ExtResource("1_o5b8i")
+region = Rect2(1198, 0, 1198, 1340)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_685ri"]
+atlas = ExtResource("1_o5b8i")
+region = Rect2(0, 1591, 1198, 1340)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7yijc"]
+atlas = ExtResource("1_o5b8i")
+region = Rect2(1198, 1591, 1198, 1340)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hnl3k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjgwm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m315j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_685ri")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7yijc")
+}],
+"loop": true,
+"name": &"correr",
+"speed": 12.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m315j"]
+radius = 20.0
+height = 40.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_685ri"]
+radius = 10.6147
+height = 46.1611
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7yijc"]
+radius = 9.60468
+height = 57.3844
+
+[node name="personaje" type="CharacterBody2D" groups=["jugador"]]
+script = ExtResource("1_cjgwm")
+
+[node name="ProgressBar" parent="." instance=ExtResource("4_685ri")]
+offset_left = -52.0
+offset_top = 54.0
+offset_right = 37.0
+offset_bottom = 64.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_hnl3k")
+animation = &"correr"
+frame_progress = 0.530871
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position_smoothing_speed = 10.0
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+energy = 0.5
+texture = ExtResource("3_m315j")
+texture_scale = 0.6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 6)
+shape = SubResource("CapsuleShape2D_m315j")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(25, -22)
+rotation = 0.66497
+shape = SubResource("CapsuleShape2D_685ri")
+
+[node name="Area2D" type="Area2D" parent="." groups=["jugador"]]
+rotation = -0.675442
+scale = Vector2(2, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["jugador"]]
+position = Vector2(1.87348, 0.86027)
+rotation = 1.39626
+shape = SubResource("CapsuleShape2D_7yijc")

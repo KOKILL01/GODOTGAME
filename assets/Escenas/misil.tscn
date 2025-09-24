@@ -1,0 +1,49 @@
+[gd_scene load_steps=8 format=3 uid="uid://cxd2ie4eg8b0w"]
+
+[ext_resource type="Script" uid="uid://c1d1jmpu4grl4" path="res://assets/scripts/misil.gd" id="1_5f0ma"]
+[ext_resource type="Texture2D" uid="uid://by451m5r2v81i" path="res://assets/imagenes/sulochido.jpg" id="1_rq42u"]
+[ext_resource type="Texture2D" uid="uid://cclnwavhx7ry" path="res://assets/imagenes/mapa/light.png" id="3_trkju"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5f0ma"]
+atlas = ExtResource("1_rq42u")
+region = Rect2(0, 42, 75, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trkju"]
+atlas = ExtResource("1_rq42u")
+region = Rect2(75, 42, 75, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hg3ap"]
+atlas = ExtResource("1_rq42u")
+region = Rect2(150, 42, 75, 42)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tkin6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5f0ma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trkju")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hg3ap")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="misil" type="CharacterBody2D"]
+script = ExtResource("1_5f0ma")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tkin6")
+frame_progress = 0.612887
+
+[node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D"]
+color = Color(0.709132, 0.136909, 0, 1)
+energy = 5.0
+texture = ExtResource("3_trkju")
+texture_scale = 0.1
+
+[node name="Timer" type="Timer" parent="."]

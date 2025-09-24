@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8v8ulhgsf67d"]
+
+[ext_resource type="Script" uid="uid://dtfwcej7uettk" path="res://assets/scripts/letras.gd" id="1_muivx"]
+[ext_resource type="Texture2D" uid="uid://cclnwavhx7ry" path="res://assets/imagenes/mapa/light.png" id="2_jakp8"]
+
+[node name="letras" type="Node2D"]
+script = ExtResource("1_muivx")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="LetraSprite" type="Sprite2D" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="LetraSprite"]
+energy = 1.5
+texture = ExtResource("2_jakp8")
+texture_scale = 0.1

@@ -1,0 +1,56 @@
+[gd_scene load_steps=10 format=3 uid="uid://dopri4fcqsi0m"]
+
+[ext_resource type="Script" uid="uid://cl4xvkaeko8te" path="res://assets/scripts/enemigo_1.gd" id="1_35lcc"]
+[ext_resource type="Texture2D" uid="uid://duntm13lusha8" path="res://assets/imagenes/enemigo1 demonio pajaro.png" id="1_hpqwp"]
+[ext_resource type="PackedScene" uid="uid://dch8pifs42of4" path="res://assets/Escenas/ataqueenemigo.tscn" id="2_atpt4"]
+[ext_resource type="PackedScene" uid="uid://co54i52alnghe" path="res://assets/Escenas/progress_bar.tscn" id="4_dtq3e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hpqwp"]
+atlas = ExtResource("1_hpqwp")
+region = Rect2(0, 0, 400, 200)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35lcc"]
+atlas = ExtResource("1_hpqwp")
+region = Rect2(0, 200, 400, 200)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_atpt4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hpqwp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35lcc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_atpt4"]
+radius = 22.2106
+height = 103.519
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dtq3e"]
+bg_color = Color(0.972549, 0, 0.133333, 1)
+
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["enemigo1"]]
+script = ExtResource("1_35lcc")
+ataqueenemigo_escena = ExtResource("2_atpt4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_atpt4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-23, 42)
+rotation = 1.5708
+scale = Vector2(1.93601, -2.18318)
+shape = SubResource("CapsuleShape2D_atpt4")
+one_way_collision_margin = 0.0
+
+[node name="ProgressBar" parent="." instance=ExtResource("4_dtq3e")]
+offset_left = -61.0
+offset_top = -36.0
+offset_right = 64.0
+offset_bottom = -26.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_dtq3e")

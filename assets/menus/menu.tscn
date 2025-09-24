@@ -1,0 +1,122 @@
+[gd_scene load_steps=9 format=3 uid="uid://bqv0vnr5sebe7"]
+
+[ext_resource type="Script" uid="uid://bctp8qi6cshoh" path="res://assets/menus/menu.gd" id="1_sr0nq"]
+[ext_resource type="Texture2D" uid="uid://cffu24vsocau3" path="res://assets/menus/fondoanimado/2.png" id="2_qp3vo"]
+[ext_resource type="Texture2D" uid="uid://cciu2sgsnt0gf" path="res://assets/imagenes/negor.png" id="3_qp3vo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sr0nq"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qp3vo"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Animation" id="Animation_wtc61"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_12r6k"]
+resource_name = "transicion"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ne8jf"]
+_data = {
+&"RESET": SubResource("Animation_wtc61"),
+&"transicion": SubResource("Animation_12r6k")
+}
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sr0nq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.190792, 0.245386, 0.256512, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_qp3vo")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -123.5
+offset_top = -111.5
+offset_right = 123.5
+offset_bottom = 111.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 18
+
+[node name="play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_sr0nq")
+text = "Comenzar
+"
+
+[node name="cerrar" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_qp3vo")
+text = "CERRAR"
+
+[node name="negro" type="Sprite2D" parent="."]
+position = Vector2(2852, 1499)
+scale = Vector2(22.2557, 16.7005)
+texture = ExtResource("3_qp3vo")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="negro"]
+libraries = {
+&"": SubResource("AnimationLibrary_ne8jf")
+}
+autoplay = "transicion"
+
+[connection signal="pressed" from="VBoxContainer/play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/cerrar" to="." method="_on_cerrar_pressed"]
+[connection signal="pressed" from="VBoxContainer/cerrar" to="." method="_on_play_pressed"]
