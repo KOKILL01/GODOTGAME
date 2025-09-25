@@ -1,8 +1,8 @@
 [gd_scene load_steps=15 format=3 uid="uid://c0u2ge84bumbx"]
 
-[ext_resource type="Texture2D" uid="uid://b7781t7vajh0k" path="res://assets/imagenes/mapa/anotorchasuelo.png" id="1_urwkp"]
+[ext_resource type="Texture2D" uid="uid://drgmfggunjyjt" path="res://assets/imagenes/mapa/anotorchasuelo.png" id="1_urwkp"]
 [ext_resource type="Script" uid="uid://cequ16mq11mk" path="res://assets/scripts/antorcha_2.gd" id="1_w5qio"]
-[ext_resource type="Texture2D" uid="uid://cclnwavhx7ry" path="res://assets/imagenes/mapa/light.png" id="2_w5qio"]
+[ext_resource type="Texture2D" uid="uid://dc533d086vl3v" path="res://assets/imagenes/mapa/light.png" id="2_w5qio"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ni61j"]
 atlas = ExtResource("1_urwkp")

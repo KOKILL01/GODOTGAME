@@ -1,8 +1,8 @@
 [gd_scene load_steps=14 format=4 uid="uid://bidl1xbh2hvh3"]
 
-[ext_resource type="Texture2D" uid="uid://b44jl00g1rr2y" path="res://assets/imagenes/mapa/fondonegro.png" id="1_4fwsm"]
+[ext_resource type="Texture2D" uid="uid://bhhqyaejnhr1h" path="res://assets/imagenes/mapa/fondonegro.png" id="1_4fwsm"]
 [ext_resource type="Script" uid="uid://07gasmnu8oa" path="res://assets/nivel/nivel_1.gd" id="1_6eaj6"]
-[ext_resource type="Texture2D" uid="uid://bgpvnuva7nra6" path="res://assets/imagenes/mapa/mapafondo.png" id="1_v4gte"]
+[ext_resource type="Texture2D" uid="uid://dtyrgikse7oac" path="res://assets/imagenes/mapa/mapafondo.png" id="1_v4gte"]
 [ext_resource type="PackedScene" uid="uid://c8h2bqy304mup" path="res://assets/Escenas/personaje.tscn" id="2_fi0ow"]
 [ext_resource type="PackedScene" uid="uid://bvlspnpnn3nqu" path="res://assets/Escenas/antorcha.tscn" id="4_4fwsm"]
 [ext_resource type="Script" uid="uid://b6ee2t84j8bbl" path="res://assets/pasarAnivel2.gd" id="5_5w3e4"]

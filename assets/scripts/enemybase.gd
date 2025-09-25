@@ -40,11 +40,15 @@ func seguir_jugador():
 func disparar():
 	if jugador and ataqueenemigo_escena:
 		var ataque = ataqueenemigo_escena.instantiate()
+		
+		# --- CORRECCIÓN: asignar dirección y posición con pequeño offset ---
+		var dir = (jugador.global_position - global_position).normalized()
+		ataque.direccion = dir
+		ataque.global_position = global_position + dir * 20  # evita colisión inicial con el enemigo
+		
 		get_tree().current_scene.add_child(ataque)
-		ataque.global_position = global_position
-		# PASO IMPORTANTE: asignar dirección normalizada
-		ataque.direccion = (jugador.global_position - global_position).normalized()
 		print("Misil disparado hacia: ", ataque.direccion)
+	
 	tiempo_actual = 0
 
 func esquivar():

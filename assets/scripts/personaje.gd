@@ -30,6 +30,9 @@ func _on_body_entered(body):
 	if body.is_in_group("enemigo1"):
 		restar_vida(10) # Llama a la nueva función
 		print("¡Chocaste con un enemigo! Vida actual:", vida)
+	if body.is_in_group("misilEnemigo"):
+		restar_vida(20)
+		print("Choco el misil",vida)
 
 func _input(event):
 	direccion()

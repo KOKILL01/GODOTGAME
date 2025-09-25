@@ -1,8 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dch8pifs42of4"]
+[gd_scene load_steps=10 format=3 uid="uid://dch8pifs42of4"]
 
-[ext_resource type="Texture2D" uid="uid://by451m5r2v81i" path="res://assets/imagenes/sulochido.jpg" id="1_2ry2f"]
+[ext_resource type="Texture2D" uid="uid://cm7fgxoguuvps" path="res://assets/imagenes/sulochido.jpg" id="1_2ry2f"]
 [ext_resource type="Script" uid="uid://bd5nenurx07se" path="res://assets/scripts/ataqueenemigo.gd" id="1_ucite"]
-[ext_resource type="Texture2D" uid="uid://cclnwavhx7ry" path="res://assets/imagenes/mapa/light.png" id="3_2333j"]
+[ext_resource type="Texture2D" uid="uid://dc533d086vl3v" path="res://assets/imagenes/mapa/light.png" id="3_2333j"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ucite"]
 atlas = ExtResource("1_2ry2f")
@@ -40,7 +40,10 @@ animations = [{
 "speed": 12.0
 }]
 
-[node name="ataqueenemigo" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2333j"]
+size = Vector2(74, 40)
+
+[node name="ataqueenemigo" type="CharacterBody2D" groups=["misilEnemigo"]]
 script = ExtResource("1_ucite")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -58,3 +61,6 @@ color = Color(0.773708, 0, 0.0174873, 1)
 energy = 3.0
 texture = ExtResource("3_2333j")
 texture_scale = 0.3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["misilEnemigo"]]
+shape = SubResource("RectangleShape2D_2333j")
