@@ -8,6 +8,9 @@ var rapidez: float = 5 * pixeles_por_metro
 var vidamax: int = 100
 var vida: int = vidamax
 
+var esta_en_dano: bool = false
+
+
 # Referencia a la barra de salud.
 # @onready asegura que el nodo exista antes de que se use en el _ready.
 @onready var barra_salud: ProgressBar = $ProgressBar
@@ -21,69 +24,110 @@ var instancia_minijuego: Node = null
 func _ready():
 	add_to_group("jugador")
 	print("Vida inicial del jugador:", vida)
-	# Conecta la señal body_entered del Area2D a la función _on_body_entered
-	$Area2D.body_entered.connect(_on_body_entered)
+	
+	# Conecta la señal area_entered del Area2D a la función _on_area_entered
+	$Area2D.area_entered.connect(_on_area_entered)
+	
 	# Inicializa la barra de salud al comienzo de la escena
 	actualizar_salud()
 
-func _on_body_entered(body):
-	if body.is_in_group("enemigo1"):
-		restar_vida(10) # Llama a la nueva función
+func _on_area_entered(area: Area2D):
+	if area.is_in_group("enemigo1"):
+		reproducir_dano()
+		restar_vida(10)
 		print("¡Chocaste con un enemigo! Vida actual:", vida)
-	if body.is_in_group("misilEnemigo"):
+	
+	elif area.is_in_group("misilEnemigo"):
+		reproducir_dano()
 		restar_vida(20)
-		print("Choco el misil",vida)
+		print("¡Chocó un misil! Vida actual:", vida)
+
+func reproducir_dano():
+	if not esta_en_dano:  # Evita reiniciar la animación si ya está corriendo
+		esta_en_dano = true
+		$AnimatedSprite2D.play("daño")
+		$AnimatedSprite2D.animation_finished.connect(_on_animacion_dano_terminada, CONNECT_ONE_SHOT)
+
+func _on_animacion_dano_terminada():
+	if $AnimatedSprite2D.animation == "daño":
+		esta_en_dano = false
+
 
 func _input(event):
 	direccion()
 	lanzarHechizo()
+	cancelarAtaque()
 
 func _physics_process(delta):
 	if not minijuego_activo:
 		movimiento()
+		
+func cancelarAtaque():
+	if Input.is_action_pressed("espacio"):
+		desactivar_minijuego()
 
 func direccion():
+	if esta_en_dano:
+		return  # No permitir cambiar animación ni dirección
+
 	direction = Vector2.ZERO
 	
 	if Input.is_action_pressed("derecha"):
-		$AnimatedSprite2D.play("correr")
+		$AnimatedSprite2D.play("correr2")
 		$AnimatedSprite2D.flip_h = false
 		direction.x += 1
 		
 	if Input.is_action_pressed("izquierda"):
 		$AnimatedSprite2D.flip_h = true
-		$AnimatedSprite2D.play("correr")
+		$AnimatedSprite2D.play("correr2")
 		direction.x -= 1
 		
 	if Input.is_action_pressed("arriba"):
 		direction.y -= 1
-		$AnimatedSprite2D.play("correr")
+		$AnimatedSprite2D.play("correr2")
 		
 	if Input.is_action_pressed("abajo"):
 		direction.y += 1
-		$AnimatedSprite2D.play("correr")
+		$AnimatedSprite2D.play("correr2")
 		
 	if direction == Vector2.ZERO:
-		$AnimatedSprite2D.stop()
-		
-	if direction.length() > 0:
+		$AnimatedSprite2D.play("idle")
+	else:
 		direction = direction.normalized()
+
+
 
 func movimiento():
 	velocity = direction * rapidez
 	move_and_slide()
 
 func lanzarHechizo():
+	
 	if Input.is_action_just_pressed("hechizo") and not minijuego_activo:
+		
 		activar_minijuego()
 
 func activar_minijuego():
+	$AnimatedSprite2D.play("atacar")
+	$AnimatedSprite2D.animation_finished.connect(_on_animacion_terminada)
+
 	instancia_minijuego = MinijuegoLetrasEscena.instantiate()
 	get_parent().add_child(instancia_minijuego)
 	instancia_minijuego.minijuego_terminado.connect(_on_minijuego_terminado)
 	minijuego_activo = true
 	set_process_input(false)
 	print("Minijuego de letras activado")
+	
+func _on_animacion_terminada():
+	if $AnimatedSprite2D.animation == "atacar":
+		# Ahora reproducimos la segunda animación
+		$AnimatedSprite2D.play("cargarAtaque")
+
+	elif $AnimatedSprite2D.animation == "cargarAtaque":
+		# Cuando termine la segunda, mostramos el minijuego
+		instancia_minijuego.visible = true
+		# Desconectamos la señal para no repetir
+		$AnimatedSprite2D.animation_finished.disconnect(_on_animacion_terminada)
 
 func _on_minijuego_terminado(puntuacion_final):
 	print("Minijuego terminado con puntuación:", puntuacion_final)

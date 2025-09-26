@@ -1,7 +1,6 @@
-res://assets/Escenas/ataqueenemigo.tscn
-res://assets/scripts/enemybase.gd
-res://assets/menus/menu.tscn
 res://assets/Escenas/personaje.tscn
+res://assets/scripts/personaje.gd
+res://assets/menus/menu.tscn
 res://assets/Escenas/progress_bar.tscn
 res://assets/vida_jugador.tscn
 res://assets/Escenas/enemigo1.tscn
@@ -11,5 +10,5 @@ res://assets/Escenas/enemy_base.tscn
 res://assets/nivel/nivel_1.tscn
 res://assets/nivel/nivel_2.tscn
 res://assets/Escenas/letras.tscn
-res://assets/scripts/personaje.gd
-res://assets/scripts/ataqueenemigo.gd
+res://assets/Escenas/ataqueenemigo.tscn
+res://assets/scripts/main.gd

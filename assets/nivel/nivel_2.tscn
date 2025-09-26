@@ -407,7 +407,6 @@ tile_map_data = PackedByteArray("AAD//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAD2//j/AAAAAAM
 tile_set = SubResource("TileSet_jeme7")
 
 [node name="transicion" parent="." instance=ExtResource("3_6u57j")]
-visible = false
 position = Vector2(-1110, -569)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("4_sreal")]
@@ -422,5 +421,8 @@ shape = SubResource("RectangleShape2D_sreal")
 
 [node name="personaje" parent="." instance=ExtResource("1_rehmv")]
 position = Vector2(40, 37)
+
+[node name="CharacterBody2D2" parent="." instance=ExtResource("4_sreal")]
+position = Vector2(-355, -178)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dch8pifs42of4"]
+[gd_scene load_steps=11 format=3 uid="uid://dch8pifs42of4"]
 
 [ext_resource type="Texture2D" uid="uid://cm7fgxoguuvps" path="res://assets/imagenes/sulochido.jpg" id="1_2ry2f"]
 [ext_resource type="Script" uid="uid://bd5nenurx07se" path="res://assets/scripts/ataqueenemigo.gd" id="1_ucite"]
@@ -43,7 +43,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2333j"]
 size = Vector2(74, 40)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oa1gx"]
+size = Vector2(74, 40)
+
 [node name="ataqueenemigo" type="CharacterBody2D" groups=["misilEnemigo"]]
+collision_layer = 8
 script = ExtResource("1_ucite")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -64,3 +68,8 @@ texture_scale = 0.3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["misilEnemigo"]]
 shape = SubResource("RectangleShape2D_2333j")
+
+[node name="Area2D" type="Area2D" parent="." groups=["misilEnemigo"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["misilEnemigo"]]
+shape = SubResource("RectangleShape2D_oa1gx")

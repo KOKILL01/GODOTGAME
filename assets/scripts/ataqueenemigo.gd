@@ -17,6 +17,12 @@ func _physics_process(delta):
 		# Verificar colisiones solo con el jugador
 		for i in get_slide_collision_count():
 			var collider = get_slide_collision(i).get_collider()
-			if collider.is_in_group("jugador") or collider.is_in_group("mapaa"):
-				print("¡Jugador golpeado!")
+			if collider.is_in_group("jugador"):
+				
 				queue_free()
+			if collider.is_in_group("mapa"):
+				
+				queue_free()
+			if collider.is_in_group("enemigo1"):
+				
+				continue

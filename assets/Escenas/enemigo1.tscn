@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dopri4fcqsi0m"]
+[gd_scene load_steps=11 format=3 uid="uid://dopri4fcqsi0m"]
 
 [ext_resource type="Script" uid="uid://cl4xvkaeko8te" path="res://assets/scripts/enemigo_1.gd" id="1_35lcc"]
 [ext_resource type="Texture2D" uid="uid://b6c75tjc6w6o3" path="res://assets/imagenes/enemigo1 demonio pajaro.png" id="1_hpqwp"]
@@ -34,14 +34,19 @@ height = 103.519
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dtq3e"]
 bg_color = Color(0.972549, 0, 0.133333, 1)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dtq3e"]
+radius = 43.0
+height = 226.0
+
 [node name="CharacterBody2D" type="CharacterBody2D" groups=["enemigo1"]]
+collision_layer = 2
 script = ExtResource("1_35lcc")
 ataqueenemigo_escena = ExtResource("2_atpt4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_atpt4")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["enemigo1"]]
 position = Vector2(-23, 42)
 rotation = 1.5708
 scale = Vector2(1.93601, -2.18318)
@@ -54,3 +59,10 @@ offset_top = -36.0
 offset_right = 64.0
 offset_bottom = -26.0
 theme_override_styles/fill = SubResource("StyleBoxFlat_dtq3e")
+
+[node name="Area2D" type="Area2D" parent="." groups=["enemigo1"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["enemigo1"]]
+position = Vector2(-23, 42)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_dtq3e")

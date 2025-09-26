@@ -11,6 +11,11 @@ var max_letras: int = 5  # Cambiado a 5 para coincidir con tu condición
 
 func _ready():
 	generar_nueva_letra()
+	
+func _input(event):
+	if event.is_action_pressed("espacio"):
+		print("Ataque cancelado desde main")
+		game_over()
 
 func generar_nueva_letra():
 	# Verificar si hemos alcanzado el límite máximo
