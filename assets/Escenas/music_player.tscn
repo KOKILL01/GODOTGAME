@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cecwis3kb4if0"]
+
+[ext_resource type="AudioStream" uid="uid://ddb0t7k4jw62p" path="res://assets/music y sonidos/A Prophecy-Asking Alexandria.mp3" id="1_yuahi"]
+[ext_resource type="Script" uid="uid://2vwros2bsf2a" path="res://assets/scripts/music_player.gd" id="2_rry52"]
+
+[node name="MusicPlayer" type="Node2D"]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_yuahi")
+volume_db = -25.297
+autoplay = true
+script = ExtResource("2_rry52")

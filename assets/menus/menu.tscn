@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bqv0vnr5sebe7"]
+[gd_scene load_steps=10 format=3 uid="uid://bqv0vnr5sebe7"]
 
 [ext_resource type="Script" uid="uid://bctp8qi6cshoh" path="res://assets/menus/menu.gd" id="1_sr0nq"]
 [ext_resource type="Texture2D" uid="uid://cffu24vsocau3" path="res://assets/menus/fondoanimado/2.png" id="2_qp3vo"]
 [ext_resource type="Texture2D" uid="uid://cciu2sgsnt0gf" path="res://assets/imagenes/negor.png" id="3_qp3vo"]
+[ext_resource type="AudioStream" uid="uid://df45bcb720v5r" path="res://assets/music y sonidos/Gunslinger.mp3" id="4_12r6k"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sr0nq"]
 bg_color = Color(0, 0, 0, 1)
@@ -107,6 +108,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_qp3vo")
 text = "CERRAR"
 
 [node name="negro" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(2852, 1499)
 scale = Vector2(22.2557, 16.7005)
 texture = ExtResource("3_qp3vo")
@@ -116,6 +118,10 @@ libraries = {
 &"": SubResource("AnimationLibrary_ne8jf")
 }
 autoplay = "transicion"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_12r6k")
+autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/cerrar" to="." method="_on_cerrar_pressed"]

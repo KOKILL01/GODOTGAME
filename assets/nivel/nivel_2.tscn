@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=4 uid="uid://c2up5q8yf7th2"]
+[gd_scene load_steps=10 format=4 uid="uid://c2up5q8yf7th2"]
 
 [ext_resource type="Texture2D" uid="uid://dtyrgikse7oac" path="res://assets/imagenes/mapa/mapafondo.png" id="1_6u57j"]
 [ext_resource type="PackedScene" uid="uid://c8h2bqy304mup" path="res://assets/Escenas/personaje.tscn" id="1_rehmv"]
+[ext_resource type="Script" uid="uid://g2mmvcqwi21g" path="res://assets/nivel/nivel_2.gd" id="1_v0xx8"]
 [ext_resource type="PackedScene" uid="uid://bckthkxgldeqd" path="res://assets/Escenas/transicion.tscn" id="3_6u57j"]
 [ext_resource type="PackedScene" uid="uid://dopri4fcqsi0m" path="res://assets/Escenas/enemigo1.tscn" id="4_sreal"]
 [ext_resource type="Script" uid="uid://b0nkbjb2i2ffq" path="res://assets/pasarAnivel3.gd" id="5_jeme7"]
@@ -399,6 +400,7 @@ sources/0 = SubResource("TileSetAtlasSource_sreal")
 size = Vector2(99, 78)
 
 [node name="nivel2" type="Node2D"]
+script = ExtResource("1_v0xx8")
 
 [node name="background" type="TileMapLayer" parent="."]
 

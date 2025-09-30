@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dr4rvwrn6bv4k"]
+
+[ext_resource type="Script" uid="uid://d1l5086dcdc6h" path="res://assets/scripts/misilbase.gd" id="1_buymg"]
+
+[node name="misilbase" type="Node2D"]
+script = ExtResource("1_buymg")

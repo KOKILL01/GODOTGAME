@@ -1,3 +1,7 @@
+AudioStreamPlayer
+PointLight2D
+AnimatedSprite2D
+CharacterBody2D
+Timer
 CollisionShape2D
 Area2D
-PointLight2D

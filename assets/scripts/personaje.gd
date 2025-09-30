@@ -16,10 +16,22 @@ var esta_en_dano: bool = false
 @onready var barra_salud: ProgressBar = $ProgressBar
 
 const MinijuegoLetrasEscena = preload("res://assets/Escenas/main.tscn")
-const MisilEscena = preload("res://assets/Escenas/misil.tscn")
+
+# Precarga todas las escenas de misil que vayas a usar.
+const MisilEscena_original = preload("res://assets/Escenas/misil.tscn")
+const Misilblue = preload("res://assets/Escenas/misil_2.tscn")# Asegúrate de que esta ruta sea correcta
+
+# Diccionario para mapear las acciones de entrada con las escenas de misil.
+var misiles_disponibles = {
+	"hechizo": MisilEscena_original,
+	"hechizo2": Misilblue,
+}
 
 var minijuego_activo: bool = false
 var instancia_minijuego: Node = null
+
+# Variable para guardar qué misil se va a lanzar después del minijuego.
+var misil_a_lanzar: PackedScene = null
 
 func _ready():
 	add_to_group("jugador")
@@ -55,13 +67,25 @@ func _on_animacion_dano_terminada():
 
 func _input(event):
 	direccion()
-	lanzarHechizo()
+	verificar_lanzamiento() # Llama a la nueva función centralizada
 	cancelarAtaque()
 
 func _physics_process(delta):
 	if not minijuego_activo:
 		movimiento()
-		
+
+# --- NUEVA FUNCIÓN PARA GESTIONAR EL LANZAMIENTO ---
+func verificar_lanzamiento():
+	# Recorre el diccionario de misiles
+	for nombre_accion in misiles_disponibles:
+		# Si se presiona el botón asociado y no hay un minijuego activo
+		if Input.is_action_just_pressed(nombre_accion) and not minijuego_activo:
+			# Guarda la escena del misil que se lanzará
+			misil_a_lanzar = misiles_disponibles[nombre_accion]
+			# Activa el minijuego, la lógica es la misma para todos
+			activar_minijuego()
+			return # Sal del bucle para no procesar otros botones
+
 func cancelarAtaque():
 	if Input.is_action_pressed("espacio"):
 		desactivar_minijuego()
@@ -96,16 +120,9 @@ func direccion():
 		direction = direction.normalized()
 
 
-
 func movimiento():
 	velocity = direction * rapidez
 	move_and_slide()
-
-func lanzarHechizo():
-	
-	if Input.is_action_just_pressed("hechizo") and not minijuego_activo:
-		
-		activar_minijuego()
 
 func activar_minijuego():
 	$AnimatedSprite2D.play("atacar")
@@ -143,16 +160,33 @@ func desactivar_minijuego():
 	set_process_input(true)
 	print("Minijuego de letras desactivado - Personaje puede moverse nuevamente")
 
+# --- FUNCIÓN DE LANZAMIENTO GENÉRICO ---
 func lanzar_misil():
-	var nuevo_misil = MisilEscena.instantiate()
-	get_parent().add_child(nuevo_misil)
-	var mouse_pos = get_global_mouse_position()
-	var direccion_misil = (mouse_pos - global_position).normalized()
-	nuevo_misil.lanzar(global_position, direccion_misil)
-	print("¡Misil lanzado!")
+	# Si la variable tiene una escena, la instanciamos
+	if misil_a_lanzar:
+		var nuevo_misil = misil_a_lanzar.instantiate()
+		get_parent().add_child(nuevo_misil)
+		
+		# DEBUG: Verificar el tipo y métodos del nodo
+		print("Tipo del misil instanciado: ", nuevo_misil.get_class())
+		print("¿Tiene método lanzar? ", nuevo_misil.has_method("lanzar"))
+		
+		if nuevo_misil.has_method("lanzar"):
+			var mouse_pos = get_global_mouse_position()
+			var direccion_misil = (mouse_pos - global_position).normalized()
+			nuevo_misil.lanzar(global_position, direccion_misil)
+			print("¡Misil lanzado!")
+		else:
+			print("ERROR: El misil no tiene método 'lanzar'")
+			# Debug adicional
+			print("Métodos disponibles: ")
+			for method in nuevo_misil.get_method_list():
+				print(" - ", method.name)
+		
+		# Limpiamos la variable para el próximo uso
+		misil_a_lanzar = null
 	
 # --- Nuevas funciones para gestionar la vida ---
-
 func restar_vida(cantidad: int):
 	vida -= cantidad
 	if vida < 0:
