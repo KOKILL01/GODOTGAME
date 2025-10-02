@@ -55,6 +55,8 @@ animations = [{
 }]
 
 [node name="antorcha" type="CharacterBody2D"]
+light_mask = 8
+visibility_layer = 8
 script = ExtResource("1_ybhwt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cxd2ie4eg8b0w"]
+[gd_scene load_steps=34 format=3 uid="uid://cxd2ie4eg8b0w"]
 
 [ext_resource type="Script" uid="uid://c1d1jmpu4grl4" path="res://assets/scripts/misil.gd" id="1_5f0ma"]
 [ext_resource type="Texture2D" uid="uid://7ar63oo7ihhk" path="res://assets/imagenes/ataques/ataque red.png" id="2_trkju"]
@@ -205,15 +205,18 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 12.0
+"speed": 16.0
 }]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_trkju"]
+radius = 21.3776
 
 [node name="misil" type="CharacterBody2D"]
 script = ExtResource("1_5f0ma")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_tkin6")
-frame_progress = 0.755755
+frame_progress = 0.469371
 
 [node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D"]
 color = Color(0.709132, 0.136909, 0, 1)
@@ -222,3 +225,9 @@ texture = ExtResource("3_trkju")
 texture_scale = 0.1
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, 11)
+shape = SubResource("CircleShape2D_trkju")

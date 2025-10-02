@@ -294,9 +294,9 @@ position_smoothing_speed = 10.0
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(-8, 10)
-energy = 0.5
+shadow_enabled = true
 texture = ExtResource("3_m315j")
-texture_scale = 0.6
+texture_scale = 1.1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 6)

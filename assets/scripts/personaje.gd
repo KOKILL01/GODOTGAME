@@ -14,7 +14,6 @@ var esta_en_dano: bool = false
 # Referencia a la barra de salud.
 # @onready asegura que el nodo exista antes de que se use en el _ready.
 @onready var barra_salud: ProgressBar = $ProgressBar
-
 const MinijuegoLetrasEscena = preload("res://assets/Escenas/main.tscn")
 
 # Precarga todas las escenas de misil que vayas a usar.

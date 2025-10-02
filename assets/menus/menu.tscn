@@ -108,7 +108,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_qp3vo")
 text = "CERRAR"
 
 [node name="negro" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(2852, 1499)
 scale = Vector2(22.2557, 16.7005)
 texture = ExtResource("3_qp3vo")
@@ -124,5 +123,5 @@ stream = ExtResource("4_12r6k")
 autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="VBoxContainer/cerrar" to="." method="_on_cerrar_pressed"]
 [connection signal="pressed" from="VBoxContainer/cerrar" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/cerrar" to="." method="_on_cerrar_pressed"]

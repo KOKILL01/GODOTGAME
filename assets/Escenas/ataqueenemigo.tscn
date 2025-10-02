@@ -55,16 +55,11 @@ sprite_frames = SubResource("SpriteFrames_c0v0i")
 frame_progress = 0.798466
 
 [node name="PointLight2D" type="PointLight2D" parent="AnimatedSprite2D"]
+visible = false
 color = Color(0.0579281, 7.74905e-06, 0.506283, 1)
 energy = 10.0
 texture = ExtResource("3_2333j")
 texture_scale = 0.1
-
-[node name="PointLight2D2" type="PointLight2D" parent="AnimatedSprite2D"]
-color = Color(0.773708, 0, 0.0174873, 1)
-energy = 3.0
-texture = ExtResource("3_2333j")
-texture_scale = 0.3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["misilEnemigo"]]
 shape = SubResource("RectangleShape2D_2333j")
