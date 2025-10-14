@@ -83,7 +83,6 @@ func verificar_lanzamiento():
 			misil_a_lanzar = misiles_disponibles[nombre_accion]
 			# Activa el minijuego, la lógica es la misma para todos
 			activar_minijuego()
-			return # Sal del bucle para no procesar otros botones
 
 func cancelarAtaque():
 	if Input.is_action_pressed("espacio"):

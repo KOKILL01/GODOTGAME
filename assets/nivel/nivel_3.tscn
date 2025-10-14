@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://bs0x1civwlqpp"]
+[gd_scene load_steps=24 format=4 uid="uid://bs0x1civwlqpp"]
 
 [ext_resource type="Texture2D" uid="uid://bhhqyaejnhr1h" path="res://assets/imagenes/mapa/fondonegro.png" id="1_6iw10"]
 [ext_resource type="Texture2D" uid="uid://dtyrgikse7oac" path="res://assets/imagenes/mapa/mapafondo.png" id="1_yvk4f"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c0u2ge84bumbx" path="res://assets/Escenas/antorcha_2.tscn" id="4_44ucw"]
 [ext_resource type="PackedScene" uid="uid://bvlspnpnn3nqu" path="res://assets/Escenas/antorcha.tscn" id="5_1w5af"]
 [ext_resource type="PackedScene" uid="uid://dopri4fcqsi0m" path="res://assets/Escenas/enemigo1.tscn" id="6_1w5af"]
+[ext_resource type="PackedScene" uid="uid://b7jn8t65krgkp" path="res://assets/Escenas/enemigo2.tscn" id="7_cjov1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_44ucw"]
 texture = ExtResource("1_6iw10")
@@ -189,5 +190,5 @@ position = Vector2(-1440, 434)
 [node name="CharacterBody2D2" parent="Area2D" instance=ExtResource("6_1w5af")]
 position = Vector2(1414, 415)
 
-[node name="CharacterBody2D3" parent="Area2D" instance=ExtResource("6_1w5af")]
-position = Vector2(122, 1149)
+[node name="CharacterBody2D" parent="." instance=ExtResource("7_cjov1")]
+position = Vector2(806, 374)

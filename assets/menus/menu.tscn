@@ -54,6 +54,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+rotation = -0.00188388
 script = ExtResource("1_sr0nq")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -108,8 +109,8 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_qp3vo")
 text = "CERRAR"
 
 [node name="negro" type="Sprite2D" parent="."]
-position = Vector2(2852, 1499)
-scale = Vector2(22.2557, 16.7005)
+position = Vector2(577.353, 344.088)
+scale = Vector2(6.32053, 4.92739)
 texture = ExtResource("3_qp3vo")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="negro"]
