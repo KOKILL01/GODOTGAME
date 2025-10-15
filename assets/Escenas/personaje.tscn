@@ -275,6 +275,7 @@ radius = 9.60468
 height = 57.3844
 
 [node name="personaje" type="CharacterBody2D" groups=["jugador"]]
+collision_mask = 3
 script = ExtResource("1_cjgwm")
 
 [node name="ProgressBar" parent="." instance=ExtResource("4_685ri")]

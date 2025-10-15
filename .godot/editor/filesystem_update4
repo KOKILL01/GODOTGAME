@@ -1,0 +1,17 @@
+res://assets/Escenas/enemigo1.tscn
+res://assets/shaderataque/ataqueenemigo.gdshader
+res://assets/scripts/enemybase.gd
+res://assets/scripts/enemigo_1.gd
+res://assets/menus/menu.tscn
+res://assets/Escenas/music_player.tscn
+res://assets/Escenas/enemigo2.tscn
+res://assets/nivel/nivel_1.tscn
+res://assets/nivel/nivel_2.tscn
+res://assets/nivel/nivel_3.tscn
+res://assets/Escenas/personaje.tscn
+res://assets/Escenas/misil_2.tscn
+res://assets/Escenas/ataqueenemigo.tscn
+res://assets/Escenas/antorcha.tscn
+res://assets/nivel/nivel_2_prueba_2.tscn
+res://assets/Escenas/misil.tscn
+res://assets/Escenas/enemy_base.tscn

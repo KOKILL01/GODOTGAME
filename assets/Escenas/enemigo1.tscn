@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cl4xvkaeko8te" path="res://assets/scripts/enemigo_1.gd" id="1_35lcc"]
 [ext_resource type="Texture2D" uid="uid://b6c75tjc6w6o3" path="res://assets/imagenes/enemigo1 demonio pajaro.png" id="1_hpqwp"]
-[ext_resource type="PackedScene" uid="uid://co54i52alnghe" path="res://assets/Escenas/progress_bar.tscn" id="4_dtq3e"]
+[ext_resource type="Script" uid="uid://b8bnmxkiv5gd" path="res://assets/Escenas/vida_enemigo.gd" id="3_atpt4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hpqwp"]
 atlas = ExtResource("1_hpqwp")
@@ -26,16 +26,16 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_atpt4"]
-radius = 22.2106
-height = 103.519
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dtq3e"]
-bg_color = Color(0.972549, 0, 0.133333, 1)
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dtq3e"]
-radius = 43.0
-height = 226.0
+radius = 56.0
+height = 242.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_atpt4"]
+bg_color = Color(0.436655, 0.0204173, 0.00941418, 1)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_atpt4"]
+radius = 36.0133
+height = 213.995
 
 [node name="CharacterBody2D" type="CharacterBody2D" groups=["enemigo1"]]
 collision_layer = 2
@@ -44,23 +44,34 @@ script = ExtResource("1_35lcc")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_atpt4")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["enemigo1"]]
-position = Vector2(-23, 42)
-rotation = 1.5708
-scale = Vector2(1.93601, -2.18318)
-shape = SubResource("CapsuleShape2D_atpt4")
-one_way_collision_margin = 0.0
-
-[node name="ProgressBar" parent="." instance=ExtResource("4_dtq3e")]
-offset_left = -61.0
-offset_top = -36.0
-offset_right = 64.0
-offset_bottom = -26.0
-theme_override_styles/fill = SubResource("StyleBoxFlat_dtq3e")
-
 [node name="Area2D" type="Area2D" parent="." groups=["enemigo1"]]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["enemigo1"]]
-position = Vector2(-23, 42)
+position = Vector2(-21, 42)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_dtq3e")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ProgressBar" type="ProgressBar" parent="Control"]
+layout_mode = 0
+offset_left = -88.0
+offset_top = -28.0
+offset_right = 75.0
+offset_bottom = -1.0
+scale = Vector2(1, 0.439999)
+theme_override_styles/fill = SubResource("StyleBoxFlat_atpt4")
+show_percentage = false
+script = ExtResource("3_atpt4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-22, 42)
+rotation = 1.57791
+shape = SubResource("CapsuleShape2D_atpt4")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

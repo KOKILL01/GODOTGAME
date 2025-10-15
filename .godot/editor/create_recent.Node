@@ -1,4 +1,6 @@
 CollisionShape2D
+ProgressBar
+Control
 Area2D
 Node2D
 CanvasModulate
