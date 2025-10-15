@@ -218,12 +218,12 @@ animations = [{
 "speed": 17.0
 }]
 
-[node name="misil2" type="CharacterBody2D"]
+[node name="misil2" type="CharacterBody2D" groups=["misil2"]]
 script = ExtResource("1_kembf")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["misil2"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["misil2"]]
 position = Vector2(1, 11)
 shape = SubResource("CircleShape2D_kembf")
 

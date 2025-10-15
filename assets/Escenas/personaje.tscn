@@ -275,7 +275,7 @@ radius = 9.60468
 height = 57.3844
 
 [node name="personaje" type="CharacterBody2D" groups=["jugador"]]
-collision_mask = 3
+collision_mask = 2
 script = ExtResource("1_cjgwm")
 
 [node name="ProgressBar" parent="." instance=ExtResource("4_685ri")]
@@ -311,6 +311,7 @@ shape = SubResource("CapsuleShape2D_685ri")
 [node name="Area2D" type="Area2D" parent="." groups=["jugador"]]
 rotation = -0.675442
 scale = Vector2(2, 2)
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["jugador"]]
 position = Vector2(1.87348, 0.86027)

@@ -211,7 +211,7 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_trkju"]
 radius = 21.3776
 
-[node name="misil" type="CharacterBody2D"]
+[node name="misil" type="CharacterBody2D" groups=["misil1"]]
 script = ExtResource("1_5f0ma")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -226,8 +226,8 @@ texture_scale = 0.1
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["misil1"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["misil1"]]
 position = Vector2(1, 11)
 shape = SubResource("CircleShape2D_trkju")

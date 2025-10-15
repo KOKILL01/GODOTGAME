@@ -7,7 +7,7 @@ func _ready():
 	vida = vidamax
 	max_value = vidamax
 	value = vida
-	print("✅ Vida inicial:", vida)
+	#print("✅ Vida inicial:", vida)
 
 func restar_vida(cantidad: int):
 	vida -= cantidad
@@ -21,5 +21,5 @@ func actualizar_barra():
 	print("❤️ Vida actual:", vida)
 
 func morir():
-	print("💀 Enemigo muerto")
+	#print("💀 Enemigo muerto")
 	get_parent().get_parent().queue_free()  # Elimina todo el enemigo

@@ -13,7 +13,7 @@ func _ready():
 
 
 func _on_area_2d_body_entered(body) -> void:
-	print("⚡ Colisión detectada con: ", body.name)
+	#print("⚡ Colisión detectada con: ", body.name)
 	if body.is_in_group("jugador"):
-		print("⚔️ Golpe al enemigo")
+		#print("⚔️ Golpe al enemigo")
 		recibir_dano(50)

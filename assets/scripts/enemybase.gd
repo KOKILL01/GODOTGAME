@@ -62,13 +62,13 @@ func recibir_dano(cantidad: int):
 	vida_actual -= cantidad
 	if vida_actual < 0:
 		vida_actual = 0
-	print("Vida actual:", vida_actual)
+	#print("Vida actual:", vida_actual)
 	if vida_actual <= 0:
 		morir()
 
 func morir():
 	queue_free()
-	print("💀 Enemigo eliminado")
+	#print("💀 Enemigo eliminado")
 
 func elegir_accion():
 	estado = randi_range(1,3)
@@ -98,9 +98,9 @@ func esquivar():
 
 # --- Señal del Area2D ---
 func _on_area_2d_body_entered(body):
-	print("💥 Area2D detectó:", body.name, "Grupos:", body.get_groups())
+	#print("💥 Area2D detectó:", body.name, "Grupos:", body.get_groups())
 
-	print("🔹 Se detectó colisión con:", body.name, "Grupos:", body.get_groups())
+	#print("🔹 Se detectó colisión con:", body.name, "Grupos:", body.get_groups())
 	if body.is_in_group("jugador"):
 		print("⚔️ Golpe al enemigo")
 		recibir_dano(50)

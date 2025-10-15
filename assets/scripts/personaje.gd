@@ -10,7 +10,6 @@ var esta_en_dano: bool = false
 
 @onready var barra_salud: ProgressBar = $ProgressBar
 const MinijuegoLetrasEscena = preload("res://assets/Escenas/main.tscn")
-
 const MisilEscena_original = preload("res://assets/Escenas/misil.tscn")
 const Misilblue = preload("res://assets/Escenas/misil_2.tscn")
 
@@ -26,9 +25,16 @@ var misil_a_lanzar: PackedScene = null
 func _ready():
 	add_to_group("jugador")
 	actualizar_salud()
-	$Area2D.area_entered.connect(_on_area_entered)
+
+	# Asegurarse de que el Area2D exista
+	if $Area2D:
+		$Area2D.area_entered.connect(_on_area_entered)
+	else:
+		push_error("⚠️ No se encontró el nodo Area2D en el personaje.")
 
 func _on_area_entered(area: Area2D):
+	print("🔥 Colisión detectada con:", area.name, "| grupos:", area.get_groups())
+	
 	if area.is_in_group("enemigo1"):
 		reproducir_dano()
 		restar_vida(10)
@@ -54,25 +60,7 @@ func _physics_process(delta):
 	if not minijuego_activo:
 		movimiento()
 
-# --- Lanzamiento de hechizos ---
-func verificar_lanzamiento():
-	for nombre_accion in misiles_disponibles:
-		if Input.is_action_just_pressed(nombre_accion) and not minijuego_activo:
-			misil_a_lanzar = misiles_disponibles[nombre_accion]
-
-			# Definir número de letras según el hechizo
-			var cantidad_letras = 5
-			if nombre_accion == "hechizo":
-				cantidad_letras = 3
-			elif nombre_accion == "hechizo2":
-				cantidad_letras = 6
-
-			activar_minijuego(cantidad_letras)
-
-func cancelarAtaque():
-	if Input.is_action_pressed("espacio"):
-		desactivar_minijuego()
-
+# --- Movimiento del jugador ---
 func direccion():
 	if esta_en_dano: return
 	direction = Vector2.ZERO
@@ -99,6 +87,24 @@ func movimiento():
 	velocity = direction * rapidez
 	move_and_slide()
 
+# --- Minijuego de hechizos ---
+func verificar_lanzamiento():
+	for nombre_accion in misiles_disponibles:
+		if Input.is_action_just_pressed(nombre_accion) and not minijuego_activo:
+			misil_a_lanzar = misiles_disponibles[nombre_accion]
+
+			var cantidad_letras = 5
+			if nombre_accion == "hechizo":
+				cantidad_letras = 3
+			elif nombre_accion == "hechizo2":
+				cantidad_letras = 6
+
+			activar_minijuego(cantidad_letras)
+
+func cancelarAtaque():
+	if Input.is_action_pressed("espacio"):
+		desactivar_minijuego()
+
 func activar_minijuego(cantidad_letras: int):
 	$AnimatedSprite2D.play("atacar")
 	$AnimatedSprite2D.animation_finished.connect(_on_animacion_terminada)
@@ -106,7 +112,6 @@ func activar_minijuego(cantidad_letras: int):
 	instancia_minijuego = MinijuegoLetrasEscena.instantiate()
 	get_parent().add_child(instancia_minijuego)
 
-	# Pasar número de letras al minijuego
 	instancia_minijuego.max_letras = cantidad_letras
 	instancia_minijuego.minijuego_terminado.connect(_on_minijuego_terminado)
 
@@ -121,7 +126,6 @@ func _on_animacion_terminada():
 		$AnimatedSprite2D.animation_finished.disconnect(_on_animacion_terminada)
 
 func _on_minijuego_terminado(puntuacion_final):
-	# Cada letra vale 10 puntos
 	var puntos_por_letra = 10
 	var puntos_necesarios = instancia_minijuego.max_letras * puntos_por_letra
 
@@ -149,12 +153,14 @@ func lanzar_misil():
 
 func restar_vida(cantidad: int):
 	vida -= cantidad
-	if vida < 0: vida = 0
+	if vida < 0:
+		vida = 0
 	actualizar_salud()
 
 func aumentar_vida(cantidad: int):
 	vida += cantidad
-	if vida > vidamax: vida = vidamax
+	if vida > vidamax:
+		vida = vidamax
 	actualizar_salud()
 
 func actualizar_salud():
