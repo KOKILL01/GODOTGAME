@@ -10,10 +10,3 @@ func _ready():
 	if barra_vida:
 		barra_vida.max_value = vida_maxima
 		barra_vida.value = vida_actual
-
-
-func _on_area_2d_body_entered(body) -> void:
-	#print("⚡ Colisión detectada con: ", body.name)
-	if body.is_in_group("jugador"):
-		#print("⚔️ Golpe al enemigo")
-		recibir_dano(50)

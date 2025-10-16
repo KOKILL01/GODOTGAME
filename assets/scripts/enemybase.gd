@@ -15,8 +15,7 @@ var direccion: Vector2 = Vector2.ZERO
 
 func _ready():
 	
-	$Area2D.monitoring = true
-	$Area2D.connect("body_entered", Callable(self, "_on_area_2d_body_entered"))
+	
 
 	vida_actual = vida_maxima
 	
@@ -71,7 +70,7 @@ func morir():
 	#print("💀 Enemigo eliminado")
 
 func elegir_accion():
-	estado = randi_range(1,3)
+	estado = randf_range(1,3)
 	tiempo_actual = tiempo_accion
 	if estado == 3:
 		direccion = Vector2(randf_range(-1,1), randf_range(-1,1)).normalized()
@@ -83,14 +82,17 @@ func seguir_jugador():
 		move_and_slide()
 
 func disparar():
+	print("Disparando")
 	if jugador and ataqueenemigo_escena:
 		var ataque = ataqueenemigo_escena.instantiate()
-		var dir = (jugador.global_position - global_position).normalized()
-		ataque.direccion = dir
-		ataque.global_position = global_position + dir * 20
-		get_tree().current_scene.add_child(ataque)
-		print("💥 Misil disparado hacia: ", ataque.direccion)
+		ataque.direccion = (jugador.global_position - global_position).normalized()
+		get_parent().add_child(ataque)
+		ataque.global_position = global_position
+		print("💥 Misil instanciado en:", ataque.global_position)
+		print("Ataque parent:", ataque.get_parent())
 	tiempo_actual = 0
+
+
 
 func esquivar():
 	velocity = direccion * velocidad

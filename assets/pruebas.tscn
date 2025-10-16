@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cru1v0iit8aav"]
+
+[ext_resource type="PackedScene" uid="uid://dopri4fcqsi0m" path="res://assets/Escenas/enemigo1.tscn" id="1_ocf6c"]
+[ext_resource type="PackedScene" uid="uid://c8h2bqy304mup" path="res://assets/Escenas/personaje.tscn" id="2_qhpgp"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="personaje" parent="." instance=ExtResource("2_qhpgp")]
+position = Vector2(261, 170)
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_ocf6c")]
+position = Vector2(591, 143)

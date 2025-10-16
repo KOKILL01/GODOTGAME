@@ -4,8 +4,6 @@ var pixeles_por_metro: float = 80
 var direction: Vector2 = Vector2.ZERO
 var rapidez: float = 5 * pixeles_por_metro
 
-var vidamax: int = 100
-var vida: int = vidamax
 var esta_en_dano: bool = false
 
 @onready var barra_salud: ProgressBar = $ProgressBar
@@ -24,7 +22,12 @@ var misil_a_lanzar: PackedScene = null
 
 func _ready():
 	add_to_group("jugador")
-	actualizar_salud()
+	
+	# Conectar la señal del singleton para actualizar la barra
+	VidaJugador.vida_cambiada.connect(actualizar_salud)
+	
+	# Actualizar la barra con los valores actuales
+	actualizar_salud(VidaJugador.vida, VidaJugador.vidamax)
 
 	# Asegurarse de que el Area2D exista
 	if $Area2D:
@@ -37,10 +40,10 @@ func _on_area_entered(area: Area2D):
 	
 	if area.is_in_group("enemigo1"):
 		reproducir_dano()
-		restar_vida(10)
+		VidaJugador.restar_vida(10)  # Usar el singleton
 	elif area.is_in_group("misilEnemigo"):
 		reproducir_dano()
-		restar_vida(20)
+		VidaJugador.restar_vida(20)  # Usar el singleton
 
 func reproducir_dano():
 	if not esta_en_dano:
@@ -151,18 +154,6 @@ func lanzar_misil():
 			nuevo_misil.lanzar(global_position, direccion_misil)
 		misil_a_lanzar = null
 
-func restar_vida(cantidad: int):
-	vida -= cantidad
-	if vida < 0:
-		vida = 0
-	actualizar_salud()
-
-func aumentar_vida(cantidad: int):
-	vida += cantidad
-	if vida > vidamax:
-		vida = vidamax
-	actualizar_salud()
-
-func actualizar_salud():
+func actualizar_salud(vida_actual: int, vida_maxima: int):
 	if barra_salud:
-		barra_salud.actualizar_barra(vidamax, vida)
+		barra_salud.actualizar_barra(vida_maxima, vida_actual)

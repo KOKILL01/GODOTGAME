@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://b7jn8t65krgkp"]
+[gd_scene load_steps=22 format=3 uid="uid://b7jn8t65krgkp"]
 
 [ext_resource type="Script" uid="uid://cw5eum6hudyas" path="res://assets/scripts/enemigo_2.gd" id="1_0u7bk"]
 [ext_resource type="Texture2D" uid="uid://co0uflhl26hxo" path="res://assets/imagenes/enemigo2.png" id="1_ckljq"]
+[ext_resource type="Script" uid="uid://b8bnmxkiv5gd" path="res://assets/Escenas/vida_enemigo.gd" id="3_xnfun"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0u7bk"]
 atlas = ExtResource("1_ckljq")
@@ -102,6 +103,16 @@ height = 280.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qn8uf"]
 size = Vector2(300.734, 72.75)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0u7bk"]
+radius = 103.0
+height = 306.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xnfun"]
+size = Vector2(308, 83)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xnfun"]
+bg_color = Color(0.772549, 0, 0, 1)
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_0u7bk")
 
@@ -118,3 +129,30 @@ shape = SubResource("CapsuleShape2D_3a5eg")
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(65.6328, 61.375)
 shape = SubResource("RectangleShape2D_qn8uf")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(79, -103)
+shape = SubResource("CapsuleShape2D_0u7bk")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(66, 61.5)
+shape = SubResource("RectangleShape2D_xnfun")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ProgressBar" type="ProgressBar" parent="Control"]
+layout_mode = 0
+offset_left = -93.0
+offset_top = 112.0
+offset_right = 250.0
+offset_bottom = 139.0
+scale = Vector2(1, 0.559999)
+theme_override_styles/fill = SubResource("StyleBoxFlat_xnfun")
+show_percentage = false
+script = ExtResource("3_xnfun")

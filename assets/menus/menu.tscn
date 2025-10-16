@@ -109,8 +109,8 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_qp3vo")
 text = "CERRAR"
 
 [node name="negro" type="Sprite2D" parent="."]
-position = Vector2(577.353, 344.088)
-scale = Vector2(6.32053, 4.92739)
+position = Vector2(653.319, 362.231)
+scale = Vector2(14.5759, 11.1878)
 texture = ExtResource("3_qp3vo")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="negro"]

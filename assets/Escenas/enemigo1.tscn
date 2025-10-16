@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://dopri4fcqsi0m"]
+[gd_scene load_steps=11 format=3 uid="uid://dopri4fcqsi0m"]
 
 [ext_resource type="Script" uid="uid://cl4xvkaeko8te" path="res://assets/scripts/enemigo_1.gd" id="1_35lcc"]
 [ext_resource type="Texture2D" uid="uid://b6c75tjc6w6o3" path="res://assets/imagenes/enemigo1 demonio pajaro.png" id="1_hpqwp"]
+[ext_resource type="PackedScene" uid="uid://dch8pifs42of4" path="res://assets/Escenas/ataqueenemigo.tscn" id="2_dtq3e"]
 [ext_resource type="Script" uid="uid://b8bnmxkiv5gd" path="res://assets/Escenas/vida_enemigo.gd" id="3_atpt4"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hpqwp"]
@@ -40,6 +41,7 @@ height = 213.995
 [node name="CharacterBody2D" type="CharacterBody2D" groups=["enemigo1"]]
 collision_layer = 2
 script = ExtResource("1_35lcc")
+ataqueenemigo_escena = ExtResource("2_dtq3e")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_atpt4")

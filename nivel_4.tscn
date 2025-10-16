@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://b0dr8e7k0gtfu"]
+
+[ext_resource type="Texture2D" uid="uid://dtyrgikse7oac" path="res://assets/imagenes/mapa/mapafondo.png" id="1_cr0wg"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_un8mj"]
+texture = ExtResource("1_cr0wg")
+texture_region_size = Vector2i(100, 100)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_lgpry"]
+tile_size = Vector2i(100, 100)
+sources/0 = SubResource("TileSetAtlasSource_un8mj")
+
+[node name="nivel4" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_lgpry")
