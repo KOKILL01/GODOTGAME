@@ -1,8 +1,8 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1762577844
+::res://::1762580975
 export_presets.cfg::TextFile/TextFile::-1::1760653661::0::1::::<><><>0<>0<><>::
 icon.svg::CompressedTexture2D/CompressedTexture2D::4896667971812614951::1758756892::1758756949::1::::<><><>0<>0<>43eb0b2457680e5fbf5f2590a88da773<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-nivel_4.tscn::PackedScene/PackedScene::4148426287997143946::1762368013::0::1::::<><><>0<>0<><>::uid://dtyrgikse7oac::::res://assets/imagenes/mapa/mapafondo.png<>uid://bhhqyaejnhr1h::::res://assets/imagenes/mapa/fondonegro.png<>uid://c0u2ge84bumbx::::res://assets/Escenas/antorcha_2.tscn<>uid://c8h2bqy304mup::::res://assets/Escenas/personaje.tscn<>uid://bvlspnpnn3nqu::::res://assets/Escenas/antorcha.tscn
+nivel_4.tscn::PackedScene::4148426287997143946::1762580312::0::1::::<><><>0<>0<><>::uid://dtyrgikse7oac::::res://assets/imagenes/mapa/mapafondo.png<>uid://bhhqyaejnhr1h::::res://assets/imagenes/mapa/fondonegro.png<>uid://c0u2ge84bumbx::::res://assets/Escenas/antorcha_2.tscn<>uid://c8h2bqy304mup::::res://assets/Escenas/personaje.tscn<>uid://bvlspnpnn3nqu::::res://assets/Escenas/antorcha.tscn
 p.tscn::PackedScene/PackedScene::4439910270928180994::1758756892::0::1::::<><><>0<>0<><>::uid://c8h2bqy304mup::::res://assets/Escenas/personaje.tscn<>uid://dopri4fcqsi0m::::res://assets/Escenas/enemigo1.tscn
 vidajugador.gd::GDScript/GDScript::689756676432979555::1758756892::0::1::::<>Node<><>0<>0<><>::
 ::res://assets/::1761875151
@@ -10,19 +10,19 @@ pasarAnivel2.gd::GDScript/GDScript::4570824482147993129::1758756892::0::1::::<>A
 pasarAnivel3.gd::GDScript/GDScript::4168588116661727302::1760633149::0::1::::<>Area2D<><>0<>0<><>::
 pruebas.tscn::PackedScene/PackedScene::6008956733630238797::1761875151::0::1::::<><><>0<>0<><>::uid://dopri4fcqsi0m::::res://assets/Escenas/enemigo1.tscn<>uid://c8h2bqy304mup::::res://assets/Escenas/personaje.tscn
 vida_jugador.tscn::PackedScene/PackedScene::258080078104029029::1759110991::0::1::::<><><>0<>0<><>::uid://obr17hsxrc5v::::res://assets/scripts/vida_jugador.gd
-::res://assets/Escenas/::1761875151
+::res://assets/Escenas/::1762580475
 antorcha.tscn::PackedScene/PackedScene::3884214954749575544::1761875150::0::1::::<><><>0<>0<><>::uid://bjhepxkl04cqr::::res://assets/imagenes/mapa/antorcha.png<>uid://gfckk57e2nji::::res://assets/scripts/antorcha.gd<>uid://dc533d086vl3v::::res://assets/imagenes/mapa/light.png
 antorcha_2.tscn::PackedScene/PackedScene::6570500349378041081::1759261051::0::1::::<><><>0<>0<><>::uid://drgmfggunjyjt::::res://assets/imagenes/mapa/anotorchasuelo.png<>uid://cequ16mq11mk::::res://assets/scripts/antorcha_2.gd<>uid://dc533d086vl3v::::res://assets/imagenes/mapa/light.png
 ataqueenemigo.tscn::PackedScene/PackedScene::7316121259072145319::1761875150::0::1::::<><><>0<>0<><>::uid://cm7fgxoguuvps::::res://assets/imagenes/sulochido.jpg<>uid://bd5nenurx07se::::res://assets/scripts/ataqueenemigo.gd<>uid://dc533d086vl3v::::res://assets/imagenes/mapa/light.png
-enemigo1.tscn::PackedScene/PackedScene::8173919534565068302::1761875150::0::1::::<><><>0<>0<><>::uid://cl4xvkaeko8te::::res://assets/scripts/enemigo_1.gd<>uid://b6c75tjc6w6o3::::res://assets/imagenes/enemigo1 demonio pajaro.png<>uid://dch8pifs42of4::::res://assets/Escenas/ataqueenemigo.tscn<>uid://b8bnmxkiv5gd::::res://assets/Escenas/vida_enemigo.gd
+enemigo1.tscn::PackedScene::8173919534565068302::1762580312::0::1::::<><><>0<>0<><>::uid://cl4xvkaeko8te::::res://assets/scripts/enemigo_1.gd<>uid://b6c75tjc6w6o3::::res://assets/imagenes/enemigo1 demonio pajaro.png<>uid://dch8pifs42of4::::res://assets/Escenas/ataqueenemigo.tscn<>uid://b8bnmxkiv5gd::::res://assets/Escenas/vida_enemigo.gd
 enemigo2.tscn::PackedScene/PackedScene::4651892379211192099::1761875150::0::1::::<><><>0<>0<><>::uid://cw5eum6hudyas::::res://assets/scripts/enemigo_2.gd<>uid://co0uflhl26hxo::::res://assets/imagenes/enemigo2.png<>uid://b8bnmxkiv5gd::::res://assets/Escenas/vida_enemigo.gd
-enemy_base.tscn::PackedScene/PackedScene::8736559102318886929::1761875151::0::1::::<><><>0<>0<><>::uid://4y143vimx4si::::res://assets/scripts/enemybase.gd
+enemy_base.tscn::PackedScene::8736559102318886929::1762580312::0::1::::<><><>0<>0<><>::uid://4y143vimx4si::::res://assets/scripts/enemybase.gd
 letras.tscn::PackedScene/PackedScene::4748044422090198791::1759110991::0::1::::<><><>0<>0<><>::uid://dtfwcej7uettk::::res://assets/scripts/letras.gd<>uid://dc533d086vl3v::::res://assets/imagenes/mapa/light.png
 main.tscn::PackedScene/PackedScene::5465737601015449554::1759261052::0::1::::<><><>0<>0<><>::uid://kqgg51w3wyro::::res://assets/scripts/main.gd
-misil.tscn::PackedScene/PackedScene::6395031804562847380::1761875151::0::1::::<><><>0<>0<><>::uid://c1d1jmpu4grl4::::res://assets/scripts/misil.gd<>uid://7ar63oo7ihhk::::res://assets/imagenes/ataques/ataque red.png<>uid://dc533d086vl3v::::res://assets/imagenes/mapa/light.png
-misil_2.tscn::PackedScene/PackedScene::6205532260500860788::1761875150::0::1::::<><><>0<>0<><>::uid://ce0qrur5tpsp3::::res://assets/imagenes/ataques/atqqueBlue.png<>uid://bwn23c5suxyr8::::res://assets/scripts/misil_2.gd<>uid://dc533d086vl3v::::res://assets/imagenes/mapa/light.png
+misil.tscn::PackedScene::6395031804562847380::1762580475::0::1::::<><><>0<>0<><>::uid://c1d1jmpu4grl4::::res://assets/scripts/misil.gd<>uid://7ar63oo7ihhk::::res://assets/imagenes/ataques/ataque red.png<>uid://dc533d086vl3v::::res://assets/imagenes/mapa/light.png
+misil_2.tscn::PackedScene::6205532260500860788::1762580312::0::1::::<><><>0<>0<><>::uid://ce0qrur5tpsp3::::res://assets/imagenes/ataques/atqqueBlue.png<>uid://bwn23c5suxyr8::::res://assets/scripts/misil_2.gd<>uid://dc533d086vl3v::::res://assets/imagenes/mapa/light.png
 music_player.tscn::PackedScene/PackedScene::5059076546770218651::1761875150::0::1::::<><><>0<>0<><>::uid://ddb0t7k4jw62p::::res://assets/music y sonidos/A Prophecy-Asking Alexandria.mp3<>uid://2vwros2bsf2a::::res://assets/scripts/music_player.gd
-personaje.tscn::PackedScene/PackedScene::7105165875073951583::1761875150::0::1::::<><><>0<>0<><>::uid://g3gr01u330d8::::res://assets/scripts/personaje.gd<>uid://im7j8jyghrhh::::res://assets/imagenes/corriendo.png<>uid://dc533d086vl3v::::res://assets/imagenes/mapa/light.png<>uid://13rw6tji4xdn::::res://assets/imagenes/spritescompletos.png<>uid://co54i52alnghe::::res://assets/Escenas/progress_bar.tscn
+personaje.tscn::PackedScene::7105165875073951583::1762580312::0::1::::<><><>0<>0<><>::uid://g3gr01u330d8::::res://assets/scripts/personaje.gd<>uid://im7j8jyghrhh::::res://assets/imagenes/corriendo.png<>uid://dc533d086vl3v::::res://assets/imagenes/mapa/light.png<>uid://13rw6tji4xdn::::res://assets/imagenes/spritescompletos.png<>uid://co54i52alnghe::::res://assets/Escenas/progress_bar.tscn
 progress_bar.gd::GDScript/GDScript::2371282558154441310::1760649446::0::1::::BarraSalud<>ProgressBar<><>0<>0<><>::
 progress_bar.tscn::PackedScene/PackedScene::5819193207507356770::1759110991::0::1::::<><><>0<>0<><>::uid://81wxa68dvc6a::::res://assets/Escenas/progress_bar.gd
 transicion.tscn::PackedScene/PackedScene::2548608832981099003::1761875151::0::1::::<><><>0<>0<><>::uid://cciu2sgsnt0gf::::res://assets/imagenes/negor.png
@@ -48,9 +48,9 @@ antorcha.png::CompressedTexture2D/CompressedTexture2D::3032841799612888465::1758
 fondonegro.png::CompressedTexture2D/CompressedTexture2D::2893207570981531623::1758756892::1758756949::1::::<><><>0<>0<>c5fb090894cfb507203f071fc6e2839f<>res://.godot/imported/fondonegro.png-d0c00a8d536df837b159fa2ccfcbb52e.ctex::
 light.png::CompressedTexture2D/CompressedTexture2D::7363321346735754609::1758756892::1758756949::1::::<><><>0<>0<>13135665eaea63c508387333134d0568<>res://.godot/imported/light.png-dfb6e1e227d42672f66479b47776d452.ctex::
 mapafondo.png::CompressedTexture2D/CompressedTexture2D::8543438486399114554::1758756892::1758756949::1::::<><><>0<>0<>7198ec9fc765164bfdd67beb1e4de82d<>res://.godot/imported/mapafondo.png-e2b173476bed81ea58ac5798459505cf.ctex::
-::res://assets/menus/::1762368013
+::res://assets/menus/::1762580312
 menu.gd::GDScript/GDScript::2566992088530584591::1761780828::0::1::::<>Control<><>0<>0<><>::
-menu.tscn::PackedScene/PackedScene::3554350251680541164::1762368013::0::1::::<><><>0<>0<><>::uid://bctp8qi6cshoh::::res://assets/menus/menu.gd<>uid://cffu24vsocau3::::res://assets/menus/fondoanimado/2.png<>uid://cciu2sgsnt0gf::::res://assets/imagenes/negor.png<>uid://df45bcb720v5r::::res://assets/music y sonidos/Gunslinger.mp3
+menu.tscn::PackedScene::3554350251680541164::1762580312::0::1::::<><><>0<>0<><>::uid://bctp8qi6cshoh::::res://assets/menus/menu.gd<>uid://cffu24vsocau3::::res://assets/menus/fondoanimado/2.png<>uid://cciu2sgsnt0gf::::res://assets/imagenes/negor.png<>uid://df45bcb720v5r::::res://assets/music y sonidos/Gunslinger.mp3
 ::res://assets/menus/fondoanimado/::1758756949
 1.png::CompressedTexture2D/CompressedTexture2D::4758698930151332148::1758756892::1758756949::1::::<><><>0<>0<>d7c3f8ec6f162b4fda95b8b57ed2291b<>res://.godot/imported/1.png-39f3fdab4422c1749932983dd6d2cd81.ctex::
 2.png::CompressedTexture2D/CompressedTexture2D::5135371587092096948::1758756892::1758756949::1::::<><><>0<>0<>9b2091cbcc4b4418de311590fae99fb4<>res://.godot/imported/2.png-5c83690f5d377a50bbb62719884412bf.ctex::
@@ -59,38 +59,38 @@ A Prophecy-Asking Alexandria.mp3::AudioStreamMP3/AudioStreamMP3::737344651217661
 Avenged Sevenfold - Afterlife [Official Music Video].mp3::AudioStreamMP3/AudioStreamMP3::3954497896976492056::1759259054::1759259068::1::::<><><>0<>0<>68d43c152f80828fc3f620766ee71931<>res://.godot/imported/Avenged Sevenfold - Afterlife [Official Music Video].mp3-a6270d481568967c2a7524397e9d3179.mp3str::
 Bullet For My Valentine - The End.mp3::AudioStreamMP3/AudioStreamMP3::421390046179820743::1759259054::1759259068::1::::<><><>0<>0<>f85c0164643106914bb05e0c80254a0c<>res://.godot/imported/Bullet For My Valentine - The End.mp3-6fa5ebe827067221506382d348e7a416.mp3str::
 Gunslinger.mp3::AudioStreamMP3/AudioStreamMP3::7571896627796624665::1759258353::1759258354::1::::<><><>0<>0<>46a15ffe97d7cd6c30ec3cd0c3afed3d<>res://.godot/imported/Gunslinger.mp3-c62afb0c2d0d69c5c9d1f0b7b0808d2d.mp3str::
-::res://assets/nivel/::1762368013
+::res://assets/nivel/::1762580312
 nivel_1.gd::GDScript/GDScript::53563130753352272::1759260874::0::1::::<>Node2D<><>0<>0<><>::
-nivel_1.tscn::PackedScene/PackedScene::2954840093557784294::1762368013::0::1::::<><><>0<>0<><>::uid://bhhqyaejnhr1h::::res://assets/imagenes/mapa/fondonegro.png<>uid://07gasmnu8oa::::res://assets/nivel/nivel_1.gd<>uid://dtyrgikse7oac::::res://assets/imagenes/mapa/mapafondo.png<>uid://c8h2bqy304mup::::res://assets/Escenas/personaje.tscn<>uid://bvlspnpnn3nqu::::res://assets/Escenas/antorcha.tscn<>uid://b6ee2t84j8bbl::::res://assets/pasarAnivel2.gd<>uid://bckthkxgldeqd::::res://assets/Escenas/transicion.tscn<>uid://c0u2ge84bumbx::::res://assets/Escenas/antorcha_2.tscn
+nivel_1.tscn::PackedScene::2954840093557784294::1762580312::0::1::::<><><>0<>0<><>::uid://bhhqyaejnhr1h::::res://assets/imagenes/mapa/fondonegro.png<>uid://07gasmnu8oa::::res://assets/nivel/nivel_1.gd<>uid://dtyrgikse7oac::::res://assets/imagenes/mapa/mapafondo.png<>uid://c8h2bqy304mup::::res://assets/Escenas/personaje.tscn<>uid://bvlspnpnn3nqu::::res://assets/Escenas/antorcha.tscn<>uid://b6ee2t84j8bbl::::res://assets/pasarAnivel2.gd<>uid://bckthkxgldeqd::::res://assets/Escenas/transicion.tscn<>uid://c0u2ge84bumbx::::res://assets/Escenas/antorcha_2.tscn
 nivel_2.gd::GDScript/GDScript::477622401464539142::1759260930::0::1::::<>Node2D<><>0<>0<><>::
-nivel_2.tscn::PackedScene/PackedScene::6710192921853475685::1762368013::0::1::::<><><>0<>0<><>::uid://dtyrgikse7oac::::res://assets/imagenes/mapa/mapafondo.png<>uid://c8h2bqy304mup::::res://assets/Escenas/personaje.tscn<>uid://g2mmvcqwi21g::::res://assets/nivel/nivel_2.gd<>uid://cciu2sgsnt0gf::::res://assets/imagenes/negor.png<>uid://bckthkxgldeqd::::res://assets/Escenas/transicion.tscn<>uid://c0u2ge84bumbx::::res://assets/Escenas/antorcha_2.tscn<>uid://dopri4fcqsi0m::::res://assets/Escenas/enemigo1.tscn<>uid://bvlspnpnn3nqu::::res://assets/Escenas/antorcha.tscn<>uid://b0nkbjb2i2ffq::::res://assets/pasarAnivel3.gd
+nivel_2.tscn::PackedScene::6710192921853475685::1762580312::0::1::::<><><>0<>0<><>::uid://dtyrgikse7oac::::res://assets/imagenes/mapa/mapafondo.png<>uid://c8h2bqy304mup::::res://assets/Escenas/personaje.tscn<>uid://g2mmvcqwi21g::::res://assets/nivel/nivel_2.gd<>uid://cciu2sgsnt0gf::::res://assets/imagenes/negor.png<>uid://bckthkxgldeqd::::res://assets/Escenas/transicion.tscn<>uid://c0u2ge84bumbx::::res://assets/Escenas/antorcha_2.tscn<>uid://dopri4fcqsi0m::::res://assets/Escenas/enemigo1.tscn<>uid://bvlspnpnn3nqu::::res://assets/Escenas/antorcha.tscn<>uid://b0nkbjb2i2ffq::::res://assets/pasarAnivel3.gd
 nivel_2_prueba_2.tscn::PackedScene/PackedScene::3157476885840279940::1761875151::0::1::::<><><>0<>0<><>::uid://dtyrgikse7oac::::res://assets/imagenes/mapa/mapafondo.png<>uid://c8h2bqy304mup::::res://assets/Escenas/personaje.tscn<>uid://bvlspnpnn3nqu::::res://assets/Escenas/antorcha.tscn
-nivel_3.tscn::PackedScene/PackedScene::3702872352893464613::1762368013::0::1::::<><><>0<>0<><>::uid://bhhqyaejnhr1h::::res://assets/imagenes/mapa/fondonegro.png<>uid://dtyrgikse7oac::::res://assets/imagenes/mapa/mapafondo.png<>uid://c8h2bqy304mup::::res://assets/Escenas/personaje.tscn<>uid://c0u2ge84bumbx::::res://assets/Escenas/antorcha_2.tscn<>uid://bvlspnpnn3nqu::::res://assets/Escenas/antorcha.tscn<>uid://dopri4fcqsi0m::::res://assets/Escenas/enemigo1.tscn<>uid://bpk4jgc2h725v::::res://assets/nivel/pasarAnivel4.gd<>uid://b7jn8t65krgkp::::res://assets/Escenas/enemigo2.tscn<>uid://bckthkxgldeqd::::res://assets/Escenas/transicion.tscn
-node_2d.tscn::PackedScene/PackedScene::2917673544499536468::1762368013::0::1::::<><><>0<>0<><>::uid://bpggc5j40ndid::::res://assets/pruebas/tutoriañ/node_2d.gd<>uid://im7j8jyghrhh::::res://assets/imagenes/corriendo.png<>uid://cciu2sgsnt0gf::::res://assets/imagenes/negor.png<>uid://c8h2bqy304mup::::res://assets/Escenas/personaje.tscn<>uid://dtyrgikse7oac::::res://assets/imagenes/mapa/mapafondo.png<>uid://c0u2ge84bumbx::::res://assets/Escenas/antorcha_2.tscn<>uid://bckthkxgldeqd::::res://assets/Escenas/transicion.tscn
+nivel_3.tscn::PackedScene::3702872352893464613::1762580312::0::1::::<><><>0<>0<><>::uid://bhhqyaejnhr1h::::res://assets/imagenes/mapa/fondonegro.png<>uid://dtyrgikse7oac::::res://assets/imagenes/mapa/mapafondo.png<>uid://c8h2bqy304mup::::res://assets/Escenas/personaje.tscn<>uid://c0u2ge84bumbx::::res://assets/Escenas/antorcha_2.tscn<>uid://bvlspnpnn3nqu::::res://assets/Escenas/antorcha.tscn<>uid://dopri4fcqsi0m::::res://assets/Escenas/enemigo1.tscn<>uid://bpk4jgc2h725v::::res://assets/nivel/pasarAnivel4.gd<>uid://b7jn8t65krgkp::::res://assets/Escenas/enemigo2.tscn<>uid://bckthkxgldeqd::::res://assets/Escenas/transicion.tscn
+node_2d.tscn::PackedScene::2917673544499536468::1762580312::0::1::::<><><>0<>0<><>::uid://bpggc5j40ndid::::res://assets/pruebas/tutoriañ/node_2d.gd<>uid://im7j8jyghrhh::::res://assets/imagenes/corriendo.png<>uid://cciu2sgsnt0gf::::res://assets/imagenes/negor.png<>uid://c8h2bqy304mup::::res://assets/Escenas/personaje.tscn<>uid://dtyrgikse7oac::::res://assets/imagenes/mapa/mapafondo.png<>uid://c0u2ge84bumbx::::res://assets/Escenas/antorcha_2.tscn<>uid://bckthkxgldeqd::::res://assets/Escenas/transicion.tscn
 pasarAnivel4.gd::GDScript/GDScript::3461674300206666573::1762367807::0::1::::<>Area2D<><>0<>0<><>::
 tutorial.tscn::PackedScene/PackedScene::864258507727601963::1761875151::0::1::::<><><>0<>0<><>::uid://bpggc5j40ndid::::res://assets/pruebas/tutoriañ/node_2d.gd<>uid://im7j8jyghrhh::::res://assets/imagenes/corriendo.png<>uid://c8h2bqy304mup::::res://assets/Escenas/personaje.tscn
 ::res://assets/pruebas/::1760838372
 ::res://assets/pruebas/tutoriañ/::1761864682
 node_2d.gd::GDScript/GDScript::3452009069287648503::1761864682::0::1::::<>Node2D<><>0<>0<><>::
-::res://assets/scripts/::1762368155
+::res://assets/scripts/::1762580312
 antorcha.gd::GDScript/GDScript::431594815561064454::1759346026::0::1::::<>CharacterBody2D<><>0<>0<><>::
 antorcha_2.gd::GDScript/GDScript::149643800118364698::1758756892::0::1::::<>Node2D<><>0<>0<><>::
 ataqueenemigo.gd::GDScript/GDScript::2659715725814373440::1760640758::0::1::::<>CharacterBody2D<><>0<>0<><>::
-enemigo_1.gd::GDScript/GDScript::5606220120207118878::1760634517::0::1::::<>EnemyBase<><>0<>0<><>::
+enemigo_1.gd::GDScript::5606220120207118878::1762579212::0::1::::<>EnemyBase<><>0<>0<><>::
 enemigo_2.gd::GDScript/GDScript::6379206522407930602::1760634220::0::1::::<>EnemyBase<><>0<>0<><>::
-enemybase.gd::GDScript/GDScript::2086653464910698136::1761869283::0::1::::EnemyBase<>CharacterBody2D<><>0<>0<><>::
-letras.gd::GDScript/GDScript::8504511539878369788::1758756892::0::1::::<>Node2D<><>0<>0<><>::
+enemybase.gd::GDScript::2086653464910698136::1762580290::0::1::::EnemyBase<>CharacterBody2D<><>0<>0<><>::
+letras.gd::GDScript::8504511539878369788::1762578155::0::1::::<>Node2D<><>0<>0<><>::
 main.gd::GDScript/GDScript::735295114068617312::1760484224::0::1::::<>Node2D<><>0<>0<><>::
 misil.gd::GDScript/GDScript::6605539803594281623::1761868318::0::1::::<>CharacterBody2D<><>0<>0<><>::
 misilbase.gd::GDScript/GDScript::9008748076892010885::1762368155::0::1::::<>CharacterBody2D<><>0<>0<><>::
-misilbase.tscn::PackedScene/PackedScene::8413410220750149648::1762368155::0::1::::<><><>0<>0<><>::uid://d1l5086dcdc6h::::res://assets/scripts/misilbase.gd
+misilbase.tscn::PackedScene::8413410220750149648::1762580312::0::1::::<><><>0<>0<><>::uid://d1l5086dcdc6h::::res://assets/scripts/misilbase.gd
 misil_2.gd::GDScript/GDScript::3959101667802951675::1759365484::0::1::::<>CharacterBody2D<><>0<>0<><>::
 music_player.gd::GDScript/GDScript::1939817607761563562::1759261064::0::1::::<>AudioStreamPlayer<><>0<>0<><>::
-personaje.gd::GDScript/GDScript::479331653590773899::1762367715::0::1::::<>CharacterBody2D<><>0<>0<><>::
+personaje.gd::GDScript::479331653590773899::1762578596::0::1::::<>CharacterBody2D<><>0<>0<><>::
 progress_barenemigo2.gd::GDScript/GDScript::4125623418893746508::1760633852::0::1::::<>ProgressBar<><>0<>0<><>::
 vida_jugador.gd::GDScript/GDScript::985788500615150737::1760654625::0::1::::<>Node<><>0<>0<><>::
-::res://assets/shaderataque/::1762402010
-ataqueenemigo.gdshader::Shader::1730380686275842566::1762402010::0::1::::<><><>0<>0<><>::
+::res://assets/shaderataque/::1762580476
+ataqueenemigo.gdshader::Shader::1730380686275842566::1762580476::0::1::::<><><>0<>0<><>::
 ::res://letras/::1758756949
 A.png::CompressedTexture2D/CompressedTexture2D::2485991318349667661::1758756892::1758756949::1::::<><><>0<>0<>cd31bd3dd3954cd06fb792a046429a0d<>res://.godot/imported/A.png-f8eb7db7fbdd9c6b49c75120a95b9ce8.ctex::
 B.png::CompressedTexture2D/CompressedTexture2D::4486849336198876599::1758756892::1758756949::1::::<><><>0<>0<>9c734a133db486fb1fae2080d53f7a56<>res://.godot/imported/B.png-d0aa85eab547f70cb8046f645619f7d2.ctex::

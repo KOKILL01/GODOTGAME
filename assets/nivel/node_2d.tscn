@@ -114,5 +114,4 @@ position = Vector2(394, 201)
 color = Color(0.212305, 0.212305, 0.212305, 1)
 
 [node name="transicion" parent="." instance=ExtResource("7_xpj04")]
-visible = false
 position = Vector2(-848, -442)

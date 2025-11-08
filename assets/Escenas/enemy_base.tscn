@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dwqb375se74a4"]
+[gd_scene load_steps=3 format=3 uid="uid://dwqb375se74a4"]
 
 [ext_resource type="Script" uid="uid://4y143vimx4si" path="res://assets/scripts/enemybase.gd" id="1_h5kqx"]
+[ext_resource type="PackedScene" uid="uid://dch8pifs42of4" path="res://assets/Escenas/ataqueenemigo.tscn" id="2_32xbn"]
 
 [node name="EnemyBase" type="Node2D"]
 
 [node name="enemybase" type="CharacterBody2D" parent="."]
 script = ExtResource("1_h5kqx")
+ataqueenemigo_escena = ExtResource("2_32xbn")
