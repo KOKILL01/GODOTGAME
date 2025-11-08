@@ -14,33 +14,26 @@ var estado: int = 0
 var direccion: Vector2 = Vector2.ZERO
 
 func _ready():
-	
-	
-
 	vida_actual = vida_maxima
 	
-	# Buscar ProgressBar
+	# --- Configurar barra de vida ---
 	if has_node("Control/ProgressBar"):
 		barra_vida = $Control/ProgressBar
 		barra_vida.max_value = vida_maxima
 		barra_vida.value = vida_actual
-		print("✅ Barra encontrada")
-	else:
-		print("❌ No se encontró la barra de vida")
 	
-	# Buscar jugador
+	# --- Buscar jugador ---
 	jugador = get_tree().get_first_node_in_group("jugador")
 	if not jugador:
-		print("❌ Jugador no encontrado")
-	
-	# Conectar señal Area2D por código
+		print("Jugador no encontrado")
+
+	# --- Conectar detección de colisión (ahora detecta cuerpos) ---
 	if has_node("Area2D"):
-		$Area2D.body_entered.connect(_on_area_2d_body_entered)
-		print("✅ Señal Area2D conectada")
-	else:
-		print("❌ No se encontró Area2D")
-	
+		var area = $Area2D
+		area.body_entered.connect(_on_area_2d_body_entered)
+
 	elegir_accion()
+
 
 func _process(delta):
 	tiempo_actual -= delta
@@ -57,23 +50,27 @@ func _process(delta):
 	if tiempo_actual <= 0:
 		elegir_accion()
 
+
 func recibir_dano(cantidad: int):
 	vida_actual -= cantidad
 	if vida_actual < 0:
 		vida_actual = 0
-	#print("Vida actual:", vida_actual)
+	
 	if vida_actual <= 0:
 		morir()
+
 
 func morir():
 	queue_free()
 	#print("💀 Enemigo eliminado")
 
+
 func elegir_accion():
-	estado = randf_range(1,3)
+	estado = randi_range(1,3)
 	tiempo_actual = tiempo_accion
 	if estado == 3:
 		direccion = Vector2(randf_range(-1,1), randf_range(-1,1)).normalized()
+
 
 func seguir_jugador():
 	if jugador:
@@ -81,28 +78,27 @@ func seguir_jugador():
 		velocity = dir * velocidad
 		move_and_slide()
 
+
 func disparar():
-	print("Disparando")
 	if jugador and ataqueenemigo_escena:
 		var ataque = ataqueenemigo_escena.instantiate()
 		ataque.direccion = (jugador.global_position - global_position).normalized()
 		get_parent().add_child(ataque)
 		ataque.global_position = global_position
-		print("💥 Misil instanciado en:", ataque.global_position)
-		print("Ataque parent:", ataque.get_parent())
+	
 	tiempo_actual = 0
-
 
 
 func esquivar():
 	velocity = direccion * velocidad
 	move_and_slide()
 
-# --- Señal del Area2D ---
-func _on_area_2d_body_entered(body):
-	#print("💥 Area2D detectó:", body.name, "Grupos:", body.get_groups())
 
-	#print("🔹 Se detectó colisión con:", body.name, "Grupos:", body.get_groups())
-	if body.is_in_group("jugador"):
-		print("⚔️ Golpe al enemigo")
+# --- Señal del Area2D (ahora para cuerpos, no áreas) ---
+func _on_area_2d_body_entered(body: Node) -> void:
+	if body.is_in_group("misil1"):
+		print("💥 Enemigo golpeado por misil 1")
+		recibir_dano(30)
+	elif body.is_in_group("misil2"):
+		print("💥 Enemigo golpeado por misil 2")
 		recibir_dano(50)

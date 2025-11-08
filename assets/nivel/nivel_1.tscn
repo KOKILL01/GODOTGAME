@@ -76,6 +76,25 @@ position = Vector2(354, 969)
 [node name="antorcha4" parent="antorchas" instance=ExtResource("4_4fwsm")]
 position = Vector2(834, 969)
 
+[node name="Antorcha2" parent="antorchas" instance=ExtResource("7_khaif")]
+position = Vector2(197, 489)
+
+[node name="Antorcha3" parent="antorchas" instance=ExtResource("7_khaif")]
+position = Vector2(953, 483)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 709.0
+offset_top = 528.0
+offset_right = 863.0
+offset_bottom = 585.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 19
+text = "Mover -> WASD 
+Atacar ->  E, R"
+uppercase = true
+
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.0923971, 0.0923971, 0.0923971, 1)
 
@@ -87,16 +106,10 @@ script = ExtResource("5_5w3e4")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_4fwsm")
 
-[node name="transicion" parent="." instance=ExtResource("6_j4b4o")]
-position = Vector2(-592, -75)
-
-[node name="Antorcha2" parent="." instance=ExtResource("7_khaif")]
-position = Vector2(197, 489)
-
-[node name="Antorcha3" parent="." instance=ExtResource("7_khaif")]
-position = Vector2(953, 483)
-
 [node name="personaje" parent="." instance=ExtResource("2_fi0ow")]
 position = Vector2(576, 560)
+
+[node name="transicion" parent="." instance=ExtResource("6_j4b4o")]
+position = Vector2(-592, -75)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

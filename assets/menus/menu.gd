@@ -1,8 +1,8 @@
 extends Control
 
 func _ready():
-	# Detener la música del singleton al entrar al menú
-	music.get_node("AudioStreamPlayer").stop()  # acceder al hijo
+	music.get_node("AudioStreamPlayer").stop()
+	
 
 func _on_play_pressed() -> void:
 	# Detener música del menú (si la hay)
@@ -13,3 +13,8 @@ func _on_play_pressed() -> void:
 
 func _on_cerrar_pressed() -> void:
 	get_tree().quit()
+	
+func _on_tutorial_pressed():
+	
+	$AudioStreamPlayer.stop()
+	get_tree().change_scene_to_file("res://assets/nivel/node_2d.tscn")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cuoahenxogtsu"]
+[gd_scene load_steps=36 format=3 uid="uid://cuoahenxogtsu"]
 
 [ext_resource type="Texture2D" uid="uid://ce0qrur5tpsp3" path="res://assets/imagenes/ataques/atqqueBlue.png" id="1_hbs4j"]
 [ext_resource type="Script" uid="uid://bwn23c5suxyr8" path="res://assets/scripts/misil_2.gd" id="1_kembf"]
@@ -218,10 +218,16 @@ animations = [{
 "speed": 17.0
 }]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_nx6so"]
+radius = 18.0278
+
 [node name="misil2" type="CharacterBody2D" groups=["misil2"]]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_kembf")
 
 [node name="Area2D" type="Area2D" parent="." groups=["misil2"]]
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["misil2"]]
 position = Vector2(1, 11)
@@ -229,7 +235,7 @@ shape = SubResource("CircleShape2D_kembf")
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["misil2"]]
 sprite_frames = SubResource("SpriteFrames_s7bjx")
 frame_progress = 0.753127
 
@@ -239,3 +245,7 @@ color = Color(7.41214e-06, 0.597378, 0.782129, 1)
 energy = 3.0
 texture = ExtResource("3_kembf")
 texture_scale = 1.95
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["misil2"]]
+position = Vector2(1, 11)
+shape = SubResource("CircleShape2D_nx6so")

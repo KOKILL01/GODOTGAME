@@ -41,6 +41,10 @@ func _physics_process(delta):
 			if collider.is_in_group("enemigo1"):
 				# Destruir si choca con enemigos
 				queue_free()
+			
+			elif collider.is_in_group("enemigo2"):
+				# Destruir si choca con enemigos
+				queue_free()
 
 			elif collider.is_in_group("mapa"):
 				# Destruir si choca con el mapa

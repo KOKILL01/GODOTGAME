@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://mkwhgk88urih"]
+
+[ext_resource type="Script" uid="uid://bpggc5j40ndid" path="res://assets/pruebas/tutoriañ/node_2d.gd" id="1_g03tg"]
+[ext_resource type="Texture2D" uid="uid://im7j8jyghrhh" path="res://assets/imagenes/corriendo.png" id="2_jvtnl"]
+[ext_resource type="PackedScene" uid="uid://c8h2bqy304mup" path="res://assets/Escenas/personaje.tscn" id="3_mrcql"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_62f3w"]
+atlas = ExtResource("2_jvtnl")
+region = Rect2(0, 0, 1204, 1600)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w7716"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_62f3w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="tutorial" type="Node2D"]
+script = ExtResource("1_g03tg")
+
+[node name="personaje" type="AnimatedSprite2D" parent="."]
+position = Vector2(194, 150)
+scale = Vector2(0.0755814, 0.103125)
+sprite_frames = SubResource("SpriteFrames_w7716")
+
+[node name="DialogLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="personaje2" parent="." instance=ExtResource("3_mrcql")]
+position = Vector2(394, 201)

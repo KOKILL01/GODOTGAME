@@ -10,3 +10,7 @@ func _ready():
 	if barra_vida:
 		barra_vida.max_value = vida_maxima
 		barra_vida.value = vida_actual
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	pass # Replace with function body.

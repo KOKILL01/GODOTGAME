@@ -1,10 +1,18 @@
 extends CharacterBody2D
 
+# Señales para el tutorial
+signal misil_lanzado()
+signal minijuego_desactivado()
+signal minijuego_activado()
+signal movimiento_realizado()
+
+
 var pixeles_por_metro: float = 80
 var direction: Vector2 = Vector2.ZERO
 var rapidez: float = 5 * pixeles_por_metro
 
 var esta_en_dano: bool = false
+var movimiento_detectado: bool = false
 
 @onready var barra_salud: ProgressBar = $ProgressBar
 const MinijuegoLetrasEscena = preload("res://assets/Escenas/main.tscn")
@@ -36,11 +44,14 @@ func _ready():
 		push_error("⚠️ No se encontró el nodo Area2D en el personaje.")
 
 func _on_area_entered(area: Area2D):
-	print("🔥 Colisión detectada con:", area.name, "| grupos:", area.get_groups())
+	#print("🔥 Colisión detectada con:", area.name, "| grupos:", area.get_groups())
 	
 	if area.is_in_group("enemigo1"):
 		reproducir_dano()
 		VidaJugador.restar_vida(10)  # Usar el singleton
+	if area.is_in_group("enemigo2"):
+		reproducir_dano()
+		VidaJugador.restar_vida(10)
 	elif area.is_in_group("misilEnemigo"):
 		reproducir_dano()
 		VidaJugador.restar_vida(20)  # Usar el singleton
@@ -66,7 +77,9 @@ func _physics_process(delta):
 # --- Movimiento del jugador ---
 func direccion():
 	if esta_en_dano: return
+	var direccion_anterior = direction
 	direction = Vector2.ZERO
+	
 	if Input.is_action_pressed("derecha"):
 		$AnimatedSprite2D.play("correr2")
 		$AnimatedSprite2D.flip_h = false
@@ -81,8 +94,15 @@ func direccion():
 	if Input.is_action_pressed("abajo"):
 		direction.y += 1
 		$AnimatedSprite2D.play("correr2")
+	
+	# Detectar movimiento para el tutorial
+	if direction != Vector2.ZERO and not movimiento_detectado:
+		movimiento_detectado = true
+		movimiento_realizado.emit()
+	
 	if direction == Vector2.ZERO:
 		$AnimatedSprite2D.play("idle")
+		movimiento_detectado = false
 	else:
 		direction = direction.normalized()
 
@@ -107,6 +127,7 @@ func verificar_lanzamiento():
 func cancelarAtaque():
 	if Input.is_action_pressed("espacio"):
 		desactivar_minijuego()
+		minijuego_desactivado.emit()
 
 func activar_minijuego(cantidad_letras: int):
 	$AnimatedSprite2D.play("atacar")
@@ -120,6 +141,9 @@ func activar_minijuego(cantidad_letras: int):
 
 	minijuego_activo = true
 	set_process_input(false)
+	
+	# Señal para el tutorial
+	minijuego_activado.emit()
 
 func _on_animacion_terminada():
 	if $AnimatedSprite2D.animation == "atacar":
@@ -143,8 +167,13 @@ func desactivar_minijuego():
 		instancia_minijuego = null
 	minijuego_activo = false
 	set_process_input(true)
+	minijuego_desactivado.emit()
 
 func lanzar_misil():
+	# Emitir la señal UNA sola vez, al inicio
+	misil_lanzado.emit()
+	#print("Misil lanzado - señal emitida")
+	
 	if misil_a_lanzar:
 		var nuevo_misil = misil_a_lanzar.instantiate()
 		get_parent().add_child(nuevo_misil)

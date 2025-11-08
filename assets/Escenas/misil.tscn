@@ -1,8 +1,11 @@
-[gd_scene load_steps=34 format=3 uid="uid://cxd2ie4eg8b0w"]
+[gd_scene load_steps=35 format=3 uid="uid://cxd2ie4eg8b0w"]
 
 [ext_resource type="Script" uid="uid://c1d1jmpu4grl4" path="res://assets/scripts/misil.gd" id="1_5f0ma"]
 [ext_resource type="Texture2D" uid="uid://7ar63oo7ihhk" path="res://assets/imagenes/ataques/ataque red.png" id="2_trkju"]
 [ext_resource type="Texture2D" uid="uid://dc533d086vl3v" path="res://assets/imagenes/mapa/light.png" id="3_trkju"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_trkju"]
+radius = 21.3776
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hg3ap"]
 atlas = ExtResource("2_trkju")
@@ -208,13 +211,22 @@ animations = [{
 "speed": 16.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_trkju"]
-radius = 21.3776
+[sub_resource type="CircleShape2D" id="CircleShape2D_hg3ap"]
+radius = 21.0
 
 [node name="misil" type="CharacterBody2D" groups=["misil1"]]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_5f0ma")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["misil1"]]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["misil1"]]
+position = Vector2(1, 11)
+shape = SubResource("CircleShape2D_trkju")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["misil1"]]
 sprite_frames = SubResource("SpriteFrames_tkin6")
 frame_progress = 0.469371
 
@@ -226,8 +238,6 @@ texture_scale = 0.1
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="Area2D" type="Area2D" parent="." groups=["misil1"]]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["misil1"]]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["misil1"]]
 position = Vector2(1, 11)
-shape = SubResource("CircleShape2D_trkju")
+shape = SubResource("CircleShape2D_hg3ap")

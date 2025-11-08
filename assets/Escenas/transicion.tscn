@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bckthkxgldeqd"]
 
-[ext_resource type="Texture2D" uid="uid://cro5stmgr74ki" path="res://assets/imagenes/negor.png" id="1_qyve2"]
+[ext_resource type="Texture2D" uid="uid://cciu2sgsnt0gf" path="res://assets/imagenes/negor.png" id="1_qyve2"]
 
 [sub_resource type="Animation" id="Animation_4ndmc"]
 length = 0.001

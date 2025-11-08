@@ -113,7 +113,8 @@ size = Vector2(308, 83)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xnfun"]
 bg_color = Color(0.772549, 0, 0, 1)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["enemigo", "enemigo2"]]
+collision_layer = 2
 script = ExtResource("1_0u7bk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -122,21 +123,22 @@ scale = Vector2(4.055, 4.3275)
 sprite_frames = SubResource("SpriteFrames_qkh8p")
 frame_progress = 0.0337866
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["enemigo2"]]
 position = Vector2(79, -103)
 shape = SubResource("CapsuleShape2D_3a5eg")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." groups=["enemigo2"]]
 position = Vector2(65.6328, 61.375)
 shape = SubResource("RectangleShape2D_qn8uf")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["enemigo2"]]
+collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["enemigo2"]]
 position = Vector2(79, -103)
 shape = SubResource("CapsuleShape2D_0u7bk")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" groups=["enemigo2"]]
 position = Vector2(66, 61.5)
 shape = SubResource("RectangleShape2D_xnfun")
 

@@ -511,10 +511,7 @@ position = Vector2(1069, 752)
 position = Vector2(-962, 753)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0, 0, 0, 1)
-
-[node name="transicion" parent="." instance=ExtResource("3_6u57j")]
-position = Vector2(-1115, -119)
+color = Color(0.0980392, 0.0980392, 0.0980392, 1)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("4_sreal")]
 position = Vector2(938, -482)
@@ -527,10 +524,13 @@ script = ExtResource("5_jeme7")
 position = Vector2(49.5, -761)
 shape = SubResource("RectangleShape2D_sreal")
 
+[node name="CharacterBody2D2" parent="." instance=ExtResource("4_sreal")]
+position = Vector2(-783, -563)
+
 [node name="personaje" parent="." instance=ExtResource("1_rehmv")]
 position = Vector2(61, 715)
 
-[node name="CharacterBody2D2" parent="." instance=ExtResource("4_sreal")]
-position = Vector2(-783, -563)
+[node name="transicion" parent="." instance=ExtResource("3_6u57j")]
+position = Vector2(-1115, -119)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

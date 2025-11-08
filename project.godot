@@ -15,9 +15,7 @@ config/version="1"
 run/main_scene="uid://bqv0vnr5sebe7"
 config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/bg_color=Color(0, 0, 0, 1)
-boot_splash/image="uid://dcham2uqw1qm6"
-config/icon="uid://hlwgx1quhn7b"
-boot_splash/minimum_display_time=2000
+boot_splash/minimum_display_time=1000
 
 [autoload]
 
@@ -28,7 +26,7 @@ music="*res://assets/Escenas/music_player.tscn"
 
 window/size/mode=2
 mouse_cursor/custom_image="uid://cd66mbhyq27nq"
-mouse_cursor/custom_image_hotspot=Vector2(0, 45)
+mouse_cursor/custom_image_hotspot=Vector2(0, 10)
 mouse_cursor/tooltip_position_offset=Vector2(0, 0)
 
 [editor]

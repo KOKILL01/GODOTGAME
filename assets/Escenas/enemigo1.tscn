@@ -54,13 +54,13 @@ position = Vector2(-21, 42)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_dtq3e")
 
-[node name="Control" type="Control" parent="."]
+[node name="Control" type="Control" parent="." groups=["enemigo1"]]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="ProgressBar" type="ProgressBar" parent="Control"]
+[node name="ProgressBar" type="ProgressBar" parent="Control" groups=["enemigo1"]]
 layout_mode = 0
 offset_left = -88.0
 offset_top = -28.0
@@ -71,9 +71,7 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_atpt4")
 show_percentage = false
 script = ExtResource("3_atpt4")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["enemigo1"]]
 position = Vector2(-22, 42)
 rotation = 1.57791
 shape = SubResource("CapsuleShape2D_atpt4")
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

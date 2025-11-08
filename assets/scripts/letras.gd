@@ -29,7 +29,7 @@ func _ready():
 	$LetraSprite.scale = Vector2(1.5, 1.5)  # Ajusta este valor según necesites
 
 func generar_letra_aleatoria() -> String:
-	var letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	var letras = "AWSD"
 	return letras[randi() % letras.length()]
 
 func _input(event):

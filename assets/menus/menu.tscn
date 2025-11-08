@@ -100,7 +100,15 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_sr0nq")
 text = "Comenzar
 "
 
-[node name="cerrar" type="Button" parent="VBoxContainer"]
+[node name="tutorial" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_qp3vo")
+text = "Tutorial"
+
+[node name="cerrar2" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -124,5 +132,5 @@ stream = ExtResource("4_12r6k")
 autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="VBoxContainer/cerrar" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="VBoxContainer/cerrar" to="." method="_on_cerrar_pressed"]
+[connection signal="pressed" from="VBoxContainer/tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="VBoxContainer/cerrar2" to="." method="_on_cerrar_pressed"]
