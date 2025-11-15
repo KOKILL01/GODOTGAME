@@ -1,14 +1,13 @@
-[gd_scene load_steps=26 format=4 uid="uid://bs0x1civwlqpp"]
+[gd_scene load_steps=25 format=4 uid="uid://bs0x1civwlqpp"]
 
 [ext_resource type="Texture2D" uid="uid://bhhqyaejnhr1h" path="res://assets/imagenes/mapa/fondonegro.png" id="1_6iw10"]
 [ext_resource type="Texture2D" uid="uid://dtyrgikse7oac" path="res://assets/imagenes/mapa/mapafondo.png" id="1_yvk4f"]
 [ext_resource type="PackedScene" uid="uid://c8h2bqy304mup" path="res://assets/Escenas/personaje.tscn" id="3_6pi37"]
 [ext_resource type="PackedScene" uid="uid://c0u2ge84bumbx" path="res://assets/Escenas/antorcha_2.tscn" id="4_44ucw"]
 [ext_resource type="PackedScene" uid="uid://bvlspnpnn3nqu" path="res://assets/Escenas/antorcha.tscn" id="5_1w5af"]
-[ext_resource type="PackedScene" uid="uid://dopri4fcqsi0m" path="res://assets/Escenas/enemigo1.tscn" id="6_1w5af"]
-[ext_resource type="Script" uid="uid://bpk4jgc2h725v" path="res://assets/nivel/pasarAnivel4.gd" id="6_n4tmv"]
 [ext_resource type="PackedScene" uid="uid://b7jn8t65krgkp" path="res://assets/Escenas/enemigo2.tscn" id="7_cjov1"]
 [ext_resource type="PackedScene" uid="uid://bckthkxgldeqd" path="res://assets/Escenas/transicion.tscn" id="8_6x5fk"]
+[ext_resource type="Script" uid="uid://dcjy8js2w2j0o" path="res://assets/pasarAnivevl4.gd" id="8_n4tmv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_44ucw"]
 texture = ExtResource("1_6iw10")
@@ -26,6 +25,7 @@ texture = ExtResource("1_yvk4f")
 texture_region_size = Vector2i(100, 100)
 0:0/0 = 0
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
 0:1/0 = 0
 1:1/0 = 0
 0:2/0 = 0
@@ -73,6 +73,7 @@ texture_region_size = Vector2i(100, 100)
 0:0/0 = 0
 1:0/0 = 0
 1:0/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_44ucw")
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
 0:1/0 = 0
 0:1/0/occlusion_layer_0/polygon_0/polygon = SubResource("OccluderPolygon2D_n4tmv")
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
@@ -104,8 +105,8 @@ occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ivm7b")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_44ucw"]
-size = Vector2(200, 42)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cjov1"]
+size = Vector2(202, 31)
 
 [node name="nivel3" type="Node2D"]
 
@@ -180,24 +181,20 @@ position = Vector2(683, -983)
 [node name="antorcha10" parent="antorchas" instance=ExtResource("5_1w5af")]
 position = Vector2(942, -990)
 
-[node name="Area2D" type="Area2D" parent="."]
-position = Vector2(710, -903)
-script = ExtResource("6_n4tmv")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(90, -11)
-shape = SubResource("RectangleShape2D_44ucw")
-
 [node name="CharacterBody2D" parent="." instance=ExtResource("7_cjov1")]
-position = Vector2(806, 374)
+position = Vector2(1763, 173)
 
 [node name="transicion" parent="." instance=ExtResource("8_6x5fk")]
 position = Vector2(-386, 402)
 
-[node name="CharacterBody2D2" parent="." instance=ExtResource("6_1w5af")]
-position = Vector2(-730, -469)
+[node name="CharacterBody2D2" parent="." instance=ExtResource("7_cjov1")]
+position = Vector2(-315, 140)
 
-[node name="CharacterBody2D3" parent="." instance=ExtResource("6_1w5af")]
-position = Vector2(2124, -488)
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(709, -901)
+collision_layer = 3
+script = ExtResource("8_n4tmv")
 
-[connection signal="body_entered" from="Area2D" to="personaje" method="_on_area_2d_body_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(91, 5.5)
+shape = SubResource("RectangleShape2D_cjov1")

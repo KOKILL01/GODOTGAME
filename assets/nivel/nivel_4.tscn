@@ -1,14 +1,15 @@
-[gd_scene load_steps=22 format=4 uid="uid://b0dr8e7k0gtfu"]
+[gd_scene load_steps=23 format=4 uid="uid://b0dr8e7k0gtfu"]
 
-[ext_resource type="Texture2D" uid="uid://dtyrgikse7oac" path="res://assets/imagenes/mapa/mapafondo.png" id="1_cr0wg"]
-[ext_resource type="Texture2D" uid="uid://bhhqyaejnhr1h" path="res://assets/imagenes/mapa/fondonegro.png" id="2_lgpry"]
-[ext_resource type="PackedScene" uid="uid://c0u2ge84bumbx" path="res://assets/Escenas/antorcha_2.tscn" id="3_hnomi"]
-[ext_resource type="PackedScene" uid="uid://c8h2bqy304mup" path="res://assets/Escenas/personaje.tscn" id="3_r3ujc"]
-[ext_resource type="PackedScene" uid="uid://bvlspnpnn3nqu" path="res://assets/Escenas/antorcha.tscn" id="4_ftgm6"]
-[ext_resource type="PackedScene" uid="uid://b7jn8t65krgkp" path="res://assets/Escenas/enemigo2.tscn" id="6_ftgm6"]
+[ext_resource type="Texture2D" uid="uid://dtyrgikse7oac" path="res://assets/imagenes/mapa/mapafondo.png" id="1_r8xad"]
+[ext_resource type="Texture2D" uid="uid://bhhqyaejnhr1h" path="res://assets/imagenes/mapa/fondonegro.png" id="2_t1qqf"]
+[ext_resource type="PackedScene" uid="uid://c0u2ge84bumbx" path="res://assets/Escenas/antorcha_2.tscn" id="3_cfgk6"]
+[ext_resource type="PackedScene" uid="uid://bvlspnpnn3nqu" path="res://assets/Escenas/antorcha.tscn" id="4_dahbw"]
+[ext_resource type="Script" uid="uid://d3rlyupaw7wvf" path="res://assets/pasarAnivel5.gd" id="5_xhrh5"]
+[ext_resource type="PackedScene" uid="uid://c8h2bqy304mup" path="res://assets/Escenas/personaje.tscn" id="6_qdfsv"]
+[ext_resource type="PackedScene" uid="uid://b7jn8t65krgkp" path="res://assets/Escenas/enemigo2.tscn" id="7_fao87"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_un8mj"]
-texture = ExtResource("1_cr0wg")
+texture = ExtResource("1_r8xad")
 texture_region_size = Vector2i(100, 100)
 0:0/0 = 0
 1:0/0 = 0
@@ -36,7 +37,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_un8mj")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hnomi"]
-texture = ExtResource("2_lgpry")
+texture = ExtResource("2_t1qqf")
 texture_region_size = Vector2i(100, 100)
 0:0/0 = 0
 1:0/0 = 0
@@ -71,7 +72,7 @@ polygon = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
 polygon = PackedVector2Array(-50, -50, 50, -50, 50, 50, -50, 50)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lgpry"]
-texture = ExtResource("1_cr0wg")
+texture = ExtResource("1_r8xad")
 texture_region_size = Vector2i(100, 100)
 0:0/0 = 0
 1:0/0 = 0
@@ -129,43 +130,47 @@ tile_set = SubResource("TileSet_r3ujc")
 
 [node name="antorchas" type="Node2D" parent="."]
 
-[node name="Antorcha2" parent="antorchas" instance=ExtResource("3_hnomi")]
+[node name="Antorcha2" parent="antorchas" instance=ExtResource("3_cfgk6")]
 position = Vector2(-646, 932)
 
-[node name="Antorcha3" parent="antorchas" instance=ExtResource("3_hnomi")]
+[node name="Antorcha3" parent="antorchas" instance=ExtResource("3_cfgk6")]
 position = Vector2(237, 937)
 
-[node name="Antorcha4" parent="antorchas" instance=ExtResource("3_hnomi")]
+[node name="Antorcha4" parent="antorchas" instance=ExtResource("3_cfgk6")]
 position = Vector2(-955, 354)
 
-[node name="Antorcha5" parent="antorchas" instance=ExtResource("3_hnomi")]
+[node name="Antorcha5" parent="antorchas" instance=ExtResource("3_cfgk6")]
 position = Vector2(458, 354)
 
-[node name="Antorcha6" parent="antorchas" instance=ExtResource("3_hnomi")]
+[node name="Antorcha6" parent="antorchas" instance=ExtResource("3_cfgk6")]
 position = Vector2(-958, -562)
 
-[node name="Antorcha7" parent="antorchas" instance=ExtResource("3_hnomi")]
+[node name="Antorcha7" parent="antorchas" instance=ExtResource("3_cfgk6")]
 position = Vector2(437, -570)
 
-[node name="antorcha" parent="antorchas" instance=ExtResource("4_ftgm6")]
+[node name="antorcha" parent="antorchas" instance=ExtResource("4_dahbw")]
 position = Vector2(-1312, -117)
 
-[node name="antorcha2" parent="antorchas" instance=ExtResource("4_ftgm6")]
+[node name="antorcha2" parent="antorchas" instance=ExtResource("4_dahbw")]
 position = Vector2(725, -119)
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(-290, -1134)
 scale = Vector2(1.05501, 0.57539)
+collision_layer = 3
+script = ExtResource("5_xhrh5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(85.3076, 12.1654)
 shape = SubResource("RectangleShape2D_hnomi")
 
-[node name="personaje" parent="." instance=ExtResource("3_r3ujc")]
+[node name="personaje" parent="." instance=ExtResource("6_qdfsv")]
 position = Vector2(-198, 1160)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("6_ftgm6")]
+[node name="CharacterBody2D" parent="." instance=ExtResource("7_fao87")]
 position = Vector2(-1086, -2)
 
-[node name="CharacterBody2D2" parent="." instance=ExtResource("6_ftgm6")]
+[node name="CharacterBody2D2" parent="." instance=ExtResource("7_fao87")]
 position = Vector2(330, 11)
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

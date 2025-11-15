@@ -5,7 +5,7 @@ func _ready():
 	super._ready()
 	velocidad = 270
 	tiempo_accion = 1
-	vida_maxima = 200  # Vida de este enemigo
+	vida_maxima = 150  # Vida de este enemigo
 	vida_actual = vida_maxima
 	if barra_vida:
 		barra_vida.max_value = vida_maxima

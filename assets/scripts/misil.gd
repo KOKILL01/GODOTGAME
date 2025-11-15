@@ -2,7 +2,7 @@ extends "res://assets/scripts/misilbase.gd"
 
 func _ready():
 	# Configuración específica del misil
-	velocidad = 500
+	velocidad = 800
 	tiempo_vida = 2.0
 	animacion_misil = "default"
 

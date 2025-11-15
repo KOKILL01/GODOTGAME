@@ -106,15 +106,15 @@ size = Vector2(300.734, 72.75)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0u7bk"]
 radius = 103.0
-height = 306.0
+height = 376.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xnfun"]
-size = Vector2(308, 83)
+size = Vector2(323, 110)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xnfun"]
 bg_color = Color(0.772549, 0, 0, 1)
 
-[node name="CharacterBody2D" type="CharacterBody2D" groups=["enemigo", "enemigo2"]]
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["enemigo2"]]
 collision_layer = 2
 script = ExtResource("1_0u7bk")
 ataqueenemigo_escena = ExtResource("2_p6nkw")
@@ -141,7 +141,7 @@ position = Vector2(79, -103)
 shape = SubResource("CapsuleShape2D_0u7bk")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Area2D" groups=["enemigo2"]]
-position = Vector2(66, 61.5)
+position = Vector2(71.5, 54)
 shape = SubResource("RectangleShape2D_xnfun")
 
 [node name="Control" type="Control" parent="."]

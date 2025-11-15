@@ -108,6 +108,14 @@ theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = SubResource("StyleBoxFlat_qp3vo")
 text = "Tutorial"
 
+[node name="opciones" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = SubResource("StyleBoxFlat_qp3vo")
+text = "OPCIONES"
+
 [node name="cerrar2" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -117,6 +125,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_qp3vo")
 text = "CERRAR"
 
 [node name="negro" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(653.319, 362.231)
 scale = Vector2(14.5759, 11.1878)
 texture = ExtResource("3_qp3vo")
@@ -133,4 +142,5 @@ autoplay = true
 
 [connection signal="pressed" from="VBoxContainer/play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="VBoxContainer/tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="VBoxContainer/opciones" to="." method="_on_opciones_pressed"]
 [connection signal="pressed" from="VBoxContainer/cerrar2" to="." method="_on_cerrar_pressed"]

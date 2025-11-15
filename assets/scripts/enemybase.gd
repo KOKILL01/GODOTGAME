@@ -98,7 +98,7 @@ func esquivar():
 func _on_area_2d_body_entered(body: Node) -> void:
 	if body.is_in_group("misil1"):
 		print("💥 Enemigo golpeado por misil 1")
-		recibir_dano(30)
+		recibir_dano(50)
 	elif body.is_in_group("misil2"):
 		print("💥 Enemigo golpeado por misil 2")
-		recibir_dano(50)
+		recibir_dano(100)
