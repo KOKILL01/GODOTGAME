@@ -181,14 +181,11 @@ position = Vector2(683, -983)
 [node name="antorcha10" parent="antorchas" instance=ExtResource("5_1w5af")]
 position = Vector2(942, -990)
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("7_cjov1")]
-position = Vector2(1763, 173)
-
 [node name="transicion" parent="." instance=ExtResource("8_6x5fk")]
 position = Vector2(-386, 402)
 
 [node name="CharacterBody2D2" parent="." instance=ExtResource("7_cjov1")]
-position = Vector2(-315, 140)
+position = Vector2(683, 240)
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(709, -901)

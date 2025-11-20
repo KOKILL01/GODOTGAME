@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://b0dr8e7k0gtfu"]
+[gd_scene load_steps=24 format=4 uid="uid://b0dr8e7k0gtfu"]
 
 [ext_resource type="Texture2D" uid="uid://dtyrgikse7oac" path="res://assets/imagenes/mapa/mapafondo.png" id="1_r8xad"]
 [ext_resource type="Texture2D" uid="uid://bhhqyaejnhr1h" path="res://assets/imagenes/mapa/fondonegro.png" id="2_t1qqf"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://d3rlyupaw7wvf" path="res://assets/pasarAnivel5.gd" id="5_xhrh5"]
 [ext_resource type="PackedScene" uid="uid://c8h2bqy304mup" path="res://assets/Escenas/personaje.tscn" id="6_qdfsv"]
 [ext_resource type="PackedScene" uid="uid://b7jn8t65krgkp" path="res://assets/Escenas/enemigo2.tscn" id="7_fao87"]
+[ext_resource type="PackedScene" uid="uid://bckthkxgldeqd" path="res://assets/Escenas/transicion.tscn" id="8_t1qqf"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_un8mj"]
 texture = ExtResource("1_r8xad")
@@ -172,5 +173,8 @@ position = Vector2(-1086, -2)
 
 [node name="CharacterBody2D2" parent="." instance=ExtResource("7_fao87")]
 position = Vector2(330, 11)
+
+[node name="transicion" parent="." instance=ExtResource("8_t1qqf")]
+position = Vector2(-1403, 489)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

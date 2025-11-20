@@ -125,7 +125,7 @@ func elegir_accion():
 	if en_animacion_fase:
 		return
 	
-	estado = randi_range(1, 3)
+	estado = randi_range(1, 2)
 	tiempo_actual = tiempo_accion
 	if estado == 3:
 		direccion = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
@@ -145,13 +145,39 @@ func seguir_jugador():
 func disparar():
 	if en_animacion_fase:
 		return
-	
-	if jugador and ataqueenemigo_escena:
-		var ataque = ataqueenemigo_escena.instantiate()
-		ataque.direccion = (jugador.global_position - global_position).normalized()
-		get_parent().add_child(ataque)
-		ataque.global_position = global_position
-	
+	if fase==1:
+		if jugador and ataqueenemigo_escena:
+			var ataque = ataqueenemigo_escena.instantiate()
+			ataque.direccion = (jugador.global_position - global_position).normalized()
+			get_parent().add_child(ataque)
+			ataque.global_position = global_position
+	if fase==2:
+		
+		# Dirección base hacia el jugador
+		var dir_base = (jugador.global_position - global_position).normalized()
+
+		
+		var angulos = [
+			0,                     # misil central
+			deg_to_rad(-15),       # izquierda
+			deg_to_rad(15),
+			deg_to_rad(25),       # izquierda
+			deg_to_rad(-25),   
+			deg_to_rad(35),       # izquierda
+			deg_to_rad(-35)         # derecha
+		]
+
+		for ang in angulos:
+			var ataque = ataqueenemigo_escena.instantiate()
+			
+			# Rotamos la dirección
+			ataque.direccion = dir_base.rotated(ang)
+
+			# Añadimos el misil al nivel
+			get_parent().add_child(ataque)
+
+			# Lo posicionamos en el enemigo
+			ataque.global_position = global_position
 	tiempo_actual = 0
 
 

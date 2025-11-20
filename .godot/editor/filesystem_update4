@@ -1,9 +1,9 @@
-res://assets/nivel/nivel_3.tscn
+res://assets/menus/opciones.tscn
 res://assets/shaderataque/ataqueenemigo.gdshader
 res://assets/menus/menu.tscn
-res://assets/menus/opciones.tscn
 res://assets/nivel/nivel_1.tscn
 res://assets/nivel/nivel_2.tscn
+res://assets/nivel/nivel_3.tscn
 res://assets/nivel/nivel_4.tscn
 res://assets/nivel/nivel_5.tscn
 res://assets/Escenas/enemigo1.tscn
@@ -15,7 +15,8 @@ res://assets/Escenas/personaje.tscn
 res://assets/Escenas/misil_2.tscn
 res://assets/Escenas/music_player.tscn
 res://assets/Escenas/misil.tscn
-res://assets/scripts/enemybase_2.gd
 res://assets/Escenas/ataqueenemigo.tscn
-res://assets/scripts/misil.gd
-res://assets/scripts/misil_2.gd
+res://assets/scripts/cursrorgd.gd
+res://assets/Escenas/cursor.tscn
+res://assets/scripts/enemybase_2.gd
+res://assets/scripts/enemigo_2.gd

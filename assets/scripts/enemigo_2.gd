@@ -13,4 +13,11 @@ func _ready():
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	pass # Replace with function body.
+	print("Detecté un área en enemy2")
+	if area.is_in_group("misil1"):
+		print("misil1 pegao")
+		recibir_dano(50)
+		
+	elif area.is_in_group("misil2"):
+		print("misil 2 pegaoa")
+		recibir_dano(100)

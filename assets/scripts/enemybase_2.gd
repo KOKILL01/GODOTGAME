@@ -16,21 +16,24 @@ var direccion: Vector2 = Vector2.ZERO
 func _ready():
 	vida_actual = vida_maxima
 	
-	# --- Configurar barra de vida ---
+	# Configurar barra de vida
 	if has_node("Control/ProgressBar"):
 		barra_vida = $Control/ProgressBar
 		barra_vida.max_value = vida_maxima
 		barra_vida.value = vida_actual
 	
-	# --- Buscar jugador ---
+	# Buscar jugador
 	jugador = get_tree().get_first_node_in_group("jugador")
 	if not jugador:
 		print("Jugador no encontrado")
 
-	# --- Conectar detección de colisión ---
+	# Forzar conectar Area2D (aunque la escena esté mal configurada)
 	if has_node("Area2D"):
 		var area = $Area2D
-		area.body_entered.connect(_on_area_2d_body_entered)
+		if not area.body_entered.is_connected(_on_area_2d_body_entered):
+			area.body_entered.connect(_on_area_2d_body_entered)
+	else:
+		print("ERROR: EnemyBase2 no tiene Area2D")
 
 	elegir_accion()
 
@@ -38,7 +41,7 @@ func _ready():
 func _process(delta):
 	tiempo_actual -= delta
 	
-	# Animación suave de la barra de vida
+	# Animación suave barra vida
 	if barra_vida:
 		barra_vida.value = lerp(barra_vida.value, vida_actual, 5 * delta)
 	
@@ -79,34 +82,24 @@ func seguir_jugador():
 
 
 # ---------------------------------------------------------
-#   ATAQUE EN ABANICO (3 MISILES)
+#  ATAQUE EN ABANICO (3 MISILES)
 # ---------------------------------------------------------
 func disparar():
 	if jugador and ataqueenemigo_escena:
-
-		# Dirección base hacia el jugador
 		var dir_base = (jugador.global_position - global_position).normalized()
 
-		# Ángulos para el abanico (en radianes)
 		var angulos = [
-			0,                     # misil central
-			deg_to_rad(-15),       # izquierda
-			deg_to_rad(15)         # derecha
+			0,
+			deg_to_rad(-15),
+			deg_to_rad(15)
 		]
 
 		for ang in angulos:
 			var ataque = ataqueenemigo_escena.instantiate()
-			
-			# Rotamos la dirección
 			ataque.direccion = dir_base.rotated(ang)
-
-			# Añadimos el misil al nivel
 			get_parent().add_child(ataque)
-
-			# Lo posicionamos en el enemigo
 			ataque.global_position = global_position
 
-	# Forzar cambio de acción
 	tiempo_actual = 0
 
 
@@ -115,11 +108,15 @@ func esquivar():
 	move_and_slide()
 
 
-# --- Señal del Area2D (golpes del jugador) ---
+# ---------------------------------------------------------
+#   DETECCIÓN DE MISILES (idéntica a EnemyBase1)
+# ---------------------------------------------------------
 func _on_area_2d_body_entered(body: Node) -> void:
+	if not body:
+		return
+
 	if body.is_in_group("misil1"):
-		print("💥 Enemigo golpeado por misil 1")
-		recibir_dano(50)
+		print("💥 EnemyBase2 golpeado por misil 1")
+
 	elif body.is_in_group("misil2"):
-		print("💥 Enemigo golpeado por misil 2")
-		recibir_dano(100)
+		print("💥 EnemyBase2 golpeado por misil 2")
